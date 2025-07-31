@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsoron2s7itmb"]
+[gd_scene load_steps=9 format=3 uid="uid://dsoron2s7itmb"]
 
 [ext_resource type="PackedScene" uid="uid://0kvfsax34fk8" path="res://characters/knight.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://cwmdd7m8xwtyu" path="res://world/Nature_environment_01.png" id="1_e2o6t"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cejtd5q6c6a67" path="res://characters/enemy.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://c4pwf2k82w40u" path="res://objects/health.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="6_ryrav"]
-[ext_resource type="Script" uid="uid://di0q4bt6l7nhq" path="res://objects/spike.gd" id="7_eow3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("1_e2o6t")
@@ -349,6 +348,5 @@ position = Vector2(868, 202)
 [node name="heart" parent="." instance=ExtResource("5_7jktm")]
 position = Vector2(314, 203)
 
-[node name="spike" parent="." instance=ExtResource("6_ryrav")]
-position = Vector2(240, 417)
-script = ExtResource("7_eow3j")
+[node name="Spike" parent="." instance=ExtResource("6_ryrav")]
+position = Vector2(242, 399)
