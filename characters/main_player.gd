@@ -2,20 +2,24 @@ extends CharacterBody2D
 
 # Preload the projectile scene so we can instantiate it later
 @onready var projectile = load("res://objects/projectile.tscn")
-
+@onready var dead_body_scene = preload("res://objects/dead_body.tscn") 
 # Player health system
 var health = 100
 var health_label: Label
-var game_over_label: Label
 
 # Physics constants
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Movement constants
+var spawn_position: Vector2
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
+	
+	# Store initial spawn position
+	spawn_position = global_position
+	
 	# Set up the health display when the player spawns
 	setup_health_label()
 	
@@ -81,7 +85,8 @@ func take_damage(amount: int):
 	
 	# Check if player has died
 	if health <= 0:
-		game_over()
+		spawn_dead_body()
+		respawn()
 
 	
 func heal(amount: int):
@@ -96,37 +101,27 @@ func shoot():
 	instance.spawnPosition = global_position + Vector2(50, 0)  # Spawn 50 pixels to the right
 	get_parent().add_child.call_deferred(instance)  # Add to scene safely
 	
+
+func spawn_dead_body():
+	# Create instance of dead body
+	var dead_body = dead_body_scene.instantiate()
+	
+	# Set the dead body's position to current player position
+	dead_body.global_position = global_position
+	
+	print("spawning dead body")
+	# Add dead body to the scene
+	get_parent().add_child(dead_body)
+	
+func respawn():
+	# Reset health
+	health = 100
+	update_health_display()
+	
+	# Reset position to spawn point
+	global_position = spawn_position
+	
+	# Reset velocity
+	velocity = Vector2.ZERO
 	
 	
-func game_over():
-	# Handle game over state
-	# Show game over text
-	game_over_label.show()
-	
-	# Pause the game to stop all activity
-	get_tree().paused = true
-	
-	
-func setup_game_over_label():
-	# Create and configure the game over display
-	game_over_label = Label.new()
-	
-	# Add to canvas layer to ensure it's always on top of everything
-	var canvas_layer = CanvasLayer.new()
-	add_child(canvas_layer)
-	canvas_layer.add_child(game_over_label)
-	
-	# Center the label on screen
-	game_over_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	game_over_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	
-	# Style the label with large red text
-	game_over_label.add_theme_font_size_override("font_size", 64)
-	game_over_label.modulate = Color(1, 0, 0)  # Red color
-	
-	# Position at center of screen
-	game_over_label.set_anchors_preset(Control.PRESET_CENTER)
-	
-	# Hide initially and set text
-	game_over_label.hide()
-	game_over_label.text = "GAME OVER"
