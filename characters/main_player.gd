@@ -6,6 +6,7 @@ extends CharacterBody2D
 # Player health system
 var health = 100
 var health_label: Label
+var game_over_label: Label
 
 # Physics constants
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -25,13 +26,13 @@ func _ready() -> void:
 	
 	# Create initial delay timer before the player starts shooting
 	# This gives the enemy a head start in the turn-based combat
-	
-	var initial_delay = Timer.new()
-	add_child(initial_delay)
-	initial_delay.wait_time = 2.0  # 2 seconds delay before first shot
-	initial_delay.one_shot = true  # Only trigger once
-	initial_delay.timeout.connect(start_shooting)  # Connect to shooting function
-	initial_delay.start()
+	# COMMENTED OUT - Now using mouse-aimed shooting instead
+	# var initial_delay = Timer.new()
+	# add_child(initial_delay)
+	# initial_delay.wait_time = 2.0  # 2 seconds delay before first shot
+	# initial_delay.one_shot = true  # Only trigger once
+	# initial_delay.timeout.connect(start_shooting)  # Connect to shooting function
+	# initial_delay.start()
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity when not on the ground
@@ -52,6 +53,24 @@ func _physics_process(delta: float) -> void:
 	# Apply movement
 	move_and_slide()
 
+func _input(event):
+	# Handle shooting input
+	if event.is_action_pressed("primary_shoot"):
+		shoot_towards_mouse()
+
+func shoot_towards_mouse():
+	# Get mouse position in world coordinates
+	var mouse_pos = get_global_mouse_position()
+	
+	# Calculate direction from player to mouse
+	var direction = (mouse_pos - global_position).normalized()
+	
+	# Create and fire a projectile
+	var instance = projectile.instantiate()
+	instance.dir = direction  # Pass the full direction vector
+	instance.spawnPosition = global_position + direction * 50  # Spawn 50 pixels in direction
+	get_parent().add_child.call_deferred(instance)
+
 func setup_health_label():
 	# Create a label to display the player's current health
 	health_label = Label.new()
@@ -63,19 +82,20 @@ func update_health_display():
 	# Update the health label text to show current HP
 	health_label.text = str(health) + " HP"
 	
-func start_shooting():
-	# Create repeating timer for regular shots
-	# This handles the turn-based shooting mechanic
-	
-	var shoot_timer = Timer.new()
-	add_child(shoot_timer)
-	shoot_timer.wait_time = 5.0  # 5 seconds between shots
-	shoot_timer.one_shot = false  # Repeat indefinitely
-	shoot_timer.timeout.connect(shoot)  # Connect to shoot function
-	shoot_timer.start()
-	
-	# Fire the first shot immediately after the delay
-	shoot()
+# COMMENTED OUT - Old automated shooting system
+# func start_shooting():
+# 	# Create repeating timer for regular shots
+# 	# This handles the turn-based shooting mechanic
+# 	
+# 	var shoot_timer = Timer.new()
+# 	add_child(shoot_timer)
+#  shoot_timer.wait_time = 5.0  # 5 seconds between shots
+# 	shoot_timer.one_shot = false  # Repeat indefinitely
+# 	shoot_timer.timeout.connect(shoot)  # Connect to shoot function
+# 	shoot_timer.start()
+# 	
+# 	# Fire the first shot immediately after the delay
+# 	shoot()
 	
 	
 func take_damage(amount: int):
@@ -94,12 +114,13 @@ func heal(amount: int):
 	health += amount
 	update_health_display()  # Update the health display
 
-func shoot():
-	# Create and fire a projectile
-	var instance = projectile.instantiate()
-	instance.dir = 1  # Direction 1 = right (towards enemy)
-	instance.spawnPosition = global_position + Vector2(50, 0)  # Spawn 50 pixels to the right
-	get_parent().add_child.call_deferred(instance)  # Add to scene safely
+# COMMENTED OUT - Old horizontal shooting function
+# func shoot():
+# 	# Create and fire a projectile
+# 	var instance = projectile.instantiate()
+# 	instance.dir = 1  # Direction 1 = right (towards enemy)
+# 	instance.spawnPosition = global_position + Vector2(50, 0)  # Spawn 50 pixels to the right
+# 	get_parent().add_child.call_deferred(instance)  # Add to scene safely
 	
 
 func spawn_dead_body():

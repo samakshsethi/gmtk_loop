@@ -3,8 +3,8 @@ extends CharacterBody2D
 # Movement speed of the projectile
 var speed = 200
 
-# Direction the projectile travels (-1 for left, 1 for right)
-var dir : int
+# Direction the projectile travels (Vector2 for 2D movement)
+var dir : Vector2
 
 # Starting position where the projectile spawns
 var spawnPosition : Vector2
@@ -15,8 +15,8 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	# Move the projectile horizontally in the specified direction
-	velocity = Vector2(dir * speed, 0)
+	# Move the projectile in the specified direction
+	velocity = dir * speed
 	
 	# Check for collisions while moving
 	if move_and_slide():

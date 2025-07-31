@@ -47,6 +47,6 @@ func take_damage(amount: int):
 func shoot():
 	# Create and fire a projectile towards the player
 	var instance = projectile.instantiate()
-	instance.dir = -1  # Direction -1 = left (towards player)
+	instance.dir = Vector2(-1, 0)  # Direction Vector2(-1, 0) = left (towards player)
 	instance.spawnPosition = global_position + Vector2(-50, 0)  # Spawn 50 pixels to the left
 	get_parent().add_child.call_deferred(instance)  # Add to scene safely
