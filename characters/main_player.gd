@@ -135,6 +135,7 @@ func spawn_dead_body():
 	get_parent().add_child(dead_body)
 	
 func respawn():
+	print("lol")
 	# Reset health
 	health = 100
 	update_health_display()
