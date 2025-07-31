@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsoron2s7itmb"]
+[gd_scene load_steps=8 format=3 uid="uid://dsoron2s7itmb"]
 
-[ext_resource type="PackedScene" uid="uid://0kvfsax34fk8" path="res://characters/knight.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://cwmdd7m8xwtyu" path="res://world/Nature_environment_01.png" id="1_e2o6t"]
-[ext_resource type="Script" uid="uid://bub8jpyspq1di" path="res://characters/main_player.gd" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cejtd5q6c6a67" path="res://characters/enemy.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://c4pwf2k82w40u" path="res://objects/health.tscn" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://c283kxo20gm26" path="res://characters/main_player.tscn" id="5_ryrav"]
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="6_ryrav"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
@@ -333,12 +332,8 @@ layer_0/tile_data = PackedInt32Array(2, 2031617, 5, 3, 2031617, 5, 4, 2031617, 5
 
 [node name="good guys" type="Node" parent="."]
 
-[node name="sidekick" parent="good guys" instance=ExtResource("1_80nbo")]
-position = Vector2(132, 195)
-
-[node name="player" parent="good guys" instance=ExtResource("1_80nbo")]
-position = Vector2(539, 199)
-script = ExtResource("3_fc0e3")
+[node name="main_player" parent="good guys" instance=ExtResource("5_ryrav")]
+position = Vector2(481, 183)
 
 [node name="bad guys" type="Node" parent="."]
 

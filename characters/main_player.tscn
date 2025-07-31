@@ -1,22 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://0kvfsax34fk8"]
+[gd_scene load_steps=9 format=3 uid="uid://c283kxo20gm26"]
 
-[ext_resource type="Script" uid="uid://v8q22t43m63n" path="res://characters/knight.gd" id="1_1auyl"]
-[ext_resource type="Texture2D" uid="uid://disutm70ssed6" path="res://sprites/Knight_1/Idle.png" id="1_f3g4y"]
+[ext_resource type="Script" uid="uid://bub8jpyspq1di" path="res://characters/main_player.gd" id="1_cgrrl"]
+[ext_resource type="Texture2D" uid="uid://disutm70ssed6" path="res://sprites/Knight_1/Idle.png" id="1_i8l6l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1auyl"]
-atlas = ExtResource("1_f3g4y")
+atlas = ExtResource("1_i8l6l")
 region = Rect2(0, 45, 64, 83)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ygcs"]
-atlas = ExtResource("1_f3g4y")
+atlas = ExtResource("1_i8l6l")
 region = Rect2(128, 45, 64, 83)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sf0gi"]
-atlas = ExtResource("1_f3g4y")
+atlas = ExtResource("1_i8l6l")
 region = Rect2(256, 45, 64, 83)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oeidg"]
-atlas = ExtResource("1_f3g4y")
+atlas = ExtResource("1_i8l6l")
 region = Rect2(384, 45, 64, 83)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sckry"]
@@ -42,8 +42,8 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_481be"]
 height = 58.0
 
-[node name="knight" type="CharacterBody2D"]
-script = ExtResource("1_1auyl")
+[node name="main_player" type="CharacterBody2D"]
+script = ExtResource("1_cgrrl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sckry")
