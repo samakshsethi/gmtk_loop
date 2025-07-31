@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://6hfwdsu2s7cu"]
+[gd_scene load_steps=4 format=3 uid="uid://6hfwdsu2s7cu"]
 
 [ext_resource type="Script" uid="uid://di0q4bt6l7nhq" path="res://objects/spike.gd" id="1_ipc3j"]
+[ext_resource type="Texture2D" uid="uid://cd6bgsnh8rc77" path="res://sprites/objects/4 Conjoined Spikes.png" id="2_gv2ct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe76i"]
+size = Vector2(11.4472, 17.2649)
 
 [node name="Spike" type="Area2D"]
 scale = Vector2(1.53268, 1)
 script = ExtResource("1_ipc3j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.652452, -1.19209e-07)
 scale = Vector2(2.96383, 0.57921)
 shape = SubResource("RectangleShape2D_pe76i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gv2ct")
