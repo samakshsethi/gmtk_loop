@@ -33,7 +33,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oeidg")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -47,6 +47,8 @@ height = 58.0
 rotation = -1.55509
 sprite_frames = SubResource("SpriteFrames_sckry")
 autoplay = "default"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, 2)
