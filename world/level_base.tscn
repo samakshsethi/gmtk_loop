@@ -321,7 +321,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_feb5d")
 
-[node name="Game" type="Node2D"]
+[node name="level_base" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(9, -1)
