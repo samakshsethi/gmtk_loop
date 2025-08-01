@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Movement speed of the projectile
-var speed = 200
+var speed = 1000
 
 # Direction the projectile travels (Vector2 for 2D movement)
 var dir : Vector2

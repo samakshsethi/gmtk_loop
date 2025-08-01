@@ -3,18 +3,26 @@ extends CharacterBody2D
 # Preload the projectile scene so we can instantiate it later
 @onready var projectile = load("res://objects/projectile.tscn")
 @onready var dead_body_scene = preload("res://objects/dead_body.tscn") 
+
 # Player health system
 var health = 100
 var health_label: Label
 var game_over_label: Label
 
-# Physics constants
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+# Movement constants - Updated with export variables for easy tweaking
+@export_range(0.1, 2.0) var speed_multiplier = 1.2
+@export_range(0.5, 2.0) var jump_multiplier = 1.8
+@export_range(0.5, 2.0) var gravity_multiplier = 1.0
+@export_range(0.0, 1.0) var friction = 0.1
+@export_range(0.0, 1.0) var acceleration = 0.25
 
-# Movement constants
+# Base values for calculations
+const BASE_SPEED = 1000
+const BASE_JUMP_SPEED = -1000
+const BASE_GRAVITY = 4000
+
+# Store initial spawn position
 var spawn_position: Vector2
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	
@@ -24,31 +32,20 @@ func _ready() -> void:
 	# Set up the health display when the player spawns
 	setup_health_label()
 	
-	# Create initial delay timer before the player starts shooting
-	# This gives the enemy a head start in the turn-based combat
-	# COMMENTED OUT - Now using mouse-aimed shooting instead
-	# var initial_delay = Timer.new()
-	# add_child(initial_delay)
-	# initial_delay.wait_time = 2.0  # 2 seconds delay before first shot
-	# initial_delay.one_shot = true  # Only trigger once
-	# initial_delay.timeout.connect(start_shooting)  # Connect to shooting function
-	# initial_delay.start()
-
 func _physics_process(delta: float) -> void:
-	# Apply gravity when not on the ground
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	# Apply gravity using multiplier
+	velocity.y += BASE_GRAVITY * gravity_multiplier * delta
 	
-	# Handle jump input
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	
-	# Handle horizontal movement using custom input map
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED  # Move in the direction at full speed
+	# Handle horizontal movement with improved physics
+	var dir = Input.get_axis("move_left", "move_right")
+	if dir != 0:
+		velocity.x = lerp(velocity.x, dir * BASE_SPEED * speed_multiplier, acceleration)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)  # Gradually slow down when no input
+		velocity.x = lerp(velocity.x, 0.0, friction)
+	
+	# Handle jump input using multiplier
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = BASE_JUMP_SPEED * jump_multiplier
 	
 	# Apply movement
 	move_and_slide()
@@ -81,23 +78,7 @@ func setup_health_label():
 func update_health_display():
 	# Update the health label text to show current HP
 	health_label.text = str(health) + " HP"
-	
-# COMMENTED OUT - Old automated shooting system
-# func start_shooting():
-# 	# Create repeating timer for regular shots
-# 	# This handles the turn-based shooting mechanic
-# 	
-# 	var shoot_timer = Timer.new()
-# 	add_child(shoot_timer)
-#  shoot_timer.wait_time = 5.0  # 5 seconds between shots
-# 	shoot_timer.one_shot = false  # Repeat indefinitely
-# 	shoot_timer.timeout.connect(shoot)  # Connect to shoot function
-# 	shoot_timer.start()
-# 	
-# 	# Fire the first shot immediately after the delay
-# 	shoot()
-	
-	
+
 func take_damage(amount: int):
 	# Handle damage taken by the player
 	health -= amount
@@ -114,15 +95,6 @@ func heal(amount: int):
 	health += amount
 	update_health_display()  # Update the health display
 
-# COMMENTED OUT - Old horizontal shooting function
-# func shoot():
-# 	# Create and fire a projectile
-# 	var instance = projectile.instantiate()
-# 	instance.dir = 1  # Direction 1 = right (towards enemy)
-# 	instance.spawnPosition = global_position + Vector2(50, 0)  # Spawn 50 pixels to the right
-# 	get_parent().add_child.call_deferred(instance)  # Add to scene safely
-	
-
 func spawn_dead_body():
 	# Create instance of dead body
 	var dead_body = dead_body_scene.instantiate()
@@ -135,7 +107,6 @@ func spawn_dead_body():
 	get_parent().add_child(dead_body)
 	
 func respawn():
-	print("lol")
 	# Reset health
 	health = 100
 	update_health_display()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b50g50wnb7b8r"]
 
-[ext_resource type="Script" path="res://objects/dead_body.gd" id="1_labqb"]
+[ext_resource type="Script" uid="uid://1ioggw5tkfyx" path="res://objects/dead_body.gd" id="1_labqb"]
 [ext_resource type="Texture2D" uid="uid://disutm70ssed6" path="res://sprites/Knight_1/Idle.png" id="2_ivuus"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1auyl"]

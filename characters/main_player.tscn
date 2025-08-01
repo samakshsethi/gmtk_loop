@@ -44,6 +44,10 @@ height = 58.0
 
 [node name="main_player" type="CharacterBody2D"]
 script = ExtResource("1_cgrrl")
+speed_multiplier = 0.468
+jump_multiplier = 0.847
+gravity_multiplier = 0.79
+acceleration = 0.147
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sckry")
