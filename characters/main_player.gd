@@ -8,7 +8,7 @@ extends CharacterBody2D
 var health = 100
 var health_label: Label
 var game_over_label: Label
-
+var was_moving = true
 # Movement constants - Updated with export variables for easy tweaking
 @export_range(0.1, 2.0) var speed_multiplier = 1.2
 @export_range(0.5, 2.0) var jump_multiplier = 1.8
@@ -28,11 +28,15 @@ func _ready() -> void:
 	
 	# Store initial spawn position
 	spawn_position = global_position
-	
+	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
 	# Set up the health display when the player spawns
 	setup_health_label()
 	
+	
 func _physics_process(delta: float) -> void:
+	update_health_display()
+	handle_animation()
+	
 	# Apply gravity using multiplier
 	velocity.y += BASE_GRAVITY * gravity_multiplier * delta
 	
@@ -40,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	var dir = Input.get_axis("move_left", "move_right")
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * BASE_SPEED * speed_multiplier, acceleration)
+		$AnimatedSprite2D.flip_h = dir < 0
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
 	
@@ -49,7 +54,27 @@ func _physics_process(delta: float) -> void:
 	
 	# Apply movement
 	move_and_slide()
-
+	
+func handle_animation():
+	if !velocity.y and velocity.x < 10 and velocity.x > -10:
+		if was_moving:
+			$AnimatedSprite2D.play("idle")
+			was_moving = false
+			
+	elif velocity.y:
+		$AnimatedSprite2D.play("jump")
+		was_moving = true
+	elif velocity.x < 100 and velocity.x > -100:
+		$AnimatedSprite2D.play("walk")
+		was_moving = true
+	else: 
+		$AnimatedSprite2D.play("run")
+		was_moving = true
+		
+func _on_animation_finished():
+	if $AnimatedSprite2D.animation == "idle":
+		$AnimatedSprite2D.play("looking_around")
+		
 func _input(event):
 	# Handle shooting input
 	if event.is_action_pressed("primary_shoot"):
