@@ -209,6 +209,7 @@ script = ExtResource("1_cgrrl")
 speed_multiplier = 0.468
 jump_multiplier = 0.847
 gravity_multiplier = 0.79
+friction = 0.143
 acceleration = 0.147
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -216,7 +217,8 @@ texture_filter = 1
 position = Vector2(32.5, 19)
 scale = Vector2(3.03125, 2.1875)
 sprite_frames = SubResource("SpriteFrames_a6met")
-animation = &"idle"
+animation = &"walk"
+frame_progress = 0.044154
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(34, 20)
