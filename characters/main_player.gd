@@ -105,11 +105,11 @@ func shoot_towards_mouse():
 	# Create and fire a projectile
 	var instance = projectile.instantiate()
 	instance.dir = direction
-	instance.spawnPosition = global_position + direction * 50
+	instance.spawnPosition = global_position + direction * 65
 	get_parent().add_child.call_deferred(instance)
 	
 	# Start cooldown timer
-	var timer = get_tree().create_timer(2.0)
+	var timer = get_tree().create_timer(1.5)
 	timer.timeout.connect(func(): can_shoot = true)
 
 func setup_health_label():
