@@ -13,6 +13,8 @@ func _ready() -> void:
 	# Set the projectile's initial position when it spawns
 	global_position = spawnPosition
 	
+func _process(delta: float) -> void:
+	look_at(spawnPosition)
 
 func _physics_process(delta: float) -> void:
 	# Move the projectile in the specified direction

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfrve0e82wwoc"]
 
 [ext_resource type="Script" uid="uid://dsj8uvvesohff" path="res://objects/projectile.gd" id="1_ibous"]
-[ext_resource type="Texture2D" uid="uid://hasun2g2yprs" path="res://sprites/projectile.png" id="1_x17f1"]
+[ext_resource type="Texture2D" uid="uid://hasun2g2yprs" path="res://world/projectile.png" id="1_x17f1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibous"]
 
@@ -15,6 +15,7 @@ script = ExtResource("1_ibous")
 shape = SubResource("CircleShape2D_ibous")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
 texture = ExtResource("1_x17f1")
 
 [node name="projectile_area" type="Area2D" parent="."]

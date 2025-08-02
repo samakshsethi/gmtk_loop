@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="3_ep22m"]
 [ext_resource type="PackedScene" uid="uid://dyxxvw86bsook" path="res://objects/next_level.tscn" id="4_da5si"]
 [ext_resource type="Texture2D" uid="uid://dln1pho2do4fc" path="res://world/blue_city_full.png" id="5_ep22m"]
-[ext_resource type="Script" path="res://levels/level_label.gd" id="6_ts4ud"]
+[ext_resource type="Script" uid="uid://cc07ng352uf1c" path="res://levels/level_label.gd" id="6_ts4ud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("1_vmt1o")
@@ -345,7 +345,7 @@ position = Vector2(951, 344)
 
 [node name="main_player" parent="." instance=ExtResource("2_da5si")]
 position = Vector2(134, 325)
-friction = 0.2
+friction = 0.22
 acceleration = 0.152
 
 [node name="bg" type="Node2D" parent="."]

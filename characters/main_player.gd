@@ -92,8 +92,8 @@ func shoot_towards_mouse():
 	
 	# Create and fire a projectile
 	var instance = projectile.instantiate()
-	instance.dir = direction  # Pass the full direction vector
-	instance.spawnPosition = global_position + direction * 50  # Spawn 50 pixels in direction
+	instance.dir = direction
+	instance.spawnPosition = global_position + direction * 50
 	get_parent().add_child.call_deferred(instance)
 
 func setup_health_label():
