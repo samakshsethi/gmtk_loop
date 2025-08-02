@@ -26,7 +26,9 @@ func _physics_process(delta: float) -> void:
 		handle_animation()
 		
 	# Horizontal movement based on player position
-		if !player_alive or player.position.x > position.x:
+		if get_node_or_null("dont_move") != null:
+			velocity.x = 0
+		elif !player_alive or player.position.x > position.x:
 			velocity.x = speed  # Move right
 			$AnimatedSprite2D.flip_h = false  # Face right
 		else:
@@ -36,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func handle_animation():
-	if !velocity.y and !velocity.x :
+	if !velocity.x :
 		$AnimatedSprite2D.play("default")
 	else:
 		$AnimatedSprite2D.play("run")
