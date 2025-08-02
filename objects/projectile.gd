@@ -24,7 +24,16 @@ func _physics_process(delta: float) -> void:
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
 			var collider = collision.get_collider()
+			print(collider)
 			
+			if collider.has_method("_is_reflective"):
+				print("mirror touched")
+	
+				var normal = collision.get_normal()
+				# Calculate the reflection direction
+				dir = dir.bounce(normal)
+				# Don't destroy the projectile, let it continue with new direction
+				return
 			# Check if the object we hit has a take_damage method
 			# This allows projectiles to damage both player and enemy
 			if collider.has_method("take_damage"):
@@ -34,3 +43,12 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 	
 	
+func reflect(mirror_rotation: float) -> void:
+	# Convert the mirror's rotation to a normal vector
+	var mirror_normal = Vector2.RIGHT.rotated(mirror_rotation)
+	
+	# Calculate the reflection
+	dir = dir.reflect(mirror_normal)
+	
+	# Optionally, you might want to add a small offset to prevent multiple reflections
+	position += dir * 10

@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8ew4se55bqkg"]
+
+[ext_resource type="Script" uid="uid://fnlgseucfe2k" path="res://objects/platform_button.gd" id="1_tvug5"]
+[ext_resource type="Texture2D" uid="uid://cyh50jefu8h81" path="res://sprites/objects/platform_button.png" id="1_wfkue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvug5"]
+size = Vector2(81, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvug5"]
+atlas = ExtResource("1_wfkue")
+region = Rect2(54, 36, 49, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyivc"]
+atlas = ExtResource("1_wfkue")
+region = Rect2(5, 36, 49, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ppn7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvug5")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyivc")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[node name="platform_button" type="Area2D"]
+position = Vector2(-3, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_tvug5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(30.5, -11)
+shape = SubResource("RectangleShape2D_tvug5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(23.6875, -16.5)
+scale = Vector2(2.44643, 1.75)
+sprite_frames = SubResource("SpriteFrames_4ppn7")
+animation = &"unpressed"
