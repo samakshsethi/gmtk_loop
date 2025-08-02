@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c283kxo20gm26"]
+[gd_scene load_steps=40 format=3 uid="uid://c283kxo20gm26"]
 
 [ext_resource type="Script" uid="uid://bub8jpyspq1di" path="res://characters/main_player.gd" id="1_cgrrl"]
 [ext_resource type="Texture2D" uid="uid://chib4qgej2b46" path="res://sprites/cat/tail.png" id="2_wc7w0"]
@@ -124,10 +124,6 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("2_wc7w0")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3a2g"]
-atlas = ExtResource("2_wc7w0")
-region = Rect2(0, 32, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hf5oa"]
 atlas = ExtResource("2_wc7w0")
 region = Rect2(64, 160, 32, 32)
@@ -248,7 +244,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e3gpy")
 }, {
-"duration": 3.0,
+"duration": 2.2,
 "texture": SubResource("AtlasTexture_ip6oo")
 }, {
 "duration": 1.0,
@@ -265,9 +261,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sxrei")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l3a2g")
 }],
 "loop": false,
 "name": &"shot",

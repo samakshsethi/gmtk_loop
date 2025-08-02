@@ -109,7 +109,7 @@ func shoot_towards_mouse():
 	get_parent().add_child.call_deferred(instance)
 	
 	# Start cooldown timer
-	var timer = get_tree().create_timer(1.5)
+	var timer = get_tree().create_timer(1.2)
 	timer.timeout.connect(func(): can_shoot = true)
 
 func setup_health_label():
