@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
 			var collider = collision.get_collider()
-			print(collider)
 			
 			if collider.has_method("_is_reflective"):
 				print("mirror touched")
@@ -34,13 +33,11 @@ func _physics_process(delta: float) -> void:
 				dir = dir.bounce(normal)
 				# Don't destroy the projectile, let it continue with new direction
 				return
-			# Check if the object we hit has a take_damage method
-			# This allows projectiles to damage both player and enemy
-			if collider.has_method("take_damage"):
-				collider.take_damage(25)  # Deal 25 damage to the target
+			# Check if the object we hit has a take_damage method  # Deal 25 damage to the target
 		
 		# Destroy the projectile after hitting something
-		queue_free()
+		var timer = get_tree().create_timer(0.02)
+		timer.timeout.connect(func(): queue_free())
 	
 	
 func reflect(mirror_rotation: float) -> void:
@@ -52,3 +49,8 @@ func reflect(mirror_rotation: float) -> void:
 	
 	# Optionally, you might want to add a small offset to prevent multiple reflections
 	position += dir * 10
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method("take_damage"):
+		body.take_damage(25) # Replace with function body.

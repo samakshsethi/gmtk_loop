@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cyh50jefu8h81" path="res://sprites/objects/platform_button.png" id="1_wfkue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvug5"]
-size = Vector2(81, 38)
+size = Vector2(81, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tvug5"]
 atlas = ExtResource("1_wfkue")
@@ -40,7 +40,7 @@ collision_mask = 2
 script = ExtResource("1_tvug5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(30.5, -11)
+position = Vector2(30.5, -4)
 shape = SubResource("RectangleShape2D_tvug5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

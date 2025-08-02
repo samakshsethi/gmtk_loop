@@ -16,7 +16,6 @@ func _ready():
 
 func _on_body_entered(body):
 	bodies_on_button += 1
-	print("entered " + str(bodies_on_button))
 	if bodies_on_button > 1 and !is_pressed:
 		_press_button()
 
