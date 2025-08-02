@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://chirym4o4tq88" path="res://levels/new_level_base.tscn" id="1_eus5j"]
 
 [node name="level_0" instance=ExtResource("1_eus5j")]
+
+[node name="main_player" parent="." index="6"]
+friction = 0.1

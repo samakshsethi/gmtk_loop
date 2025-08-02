@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://m4no0ei4f1tc"]
 
 [ext_resource type="Script" uid="uid://cacu8k1why302" path="res://objects/plank.gd" id="1_kbf4v"]
-[ext_resource type="Texture2D" uid="uid://7k4rvsh6k12w" path="res://sprites/WoodPlank.png" id="1_qxrd0"]
+[ext_resource type="Texture2D" uid="uid://7k4rvsh6k12w" path="res://world/WoodPlank.png" id="1_qxrd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbf4v"]
 size = Vector2(541, 10)

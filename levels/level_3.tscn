@@ -13,3 +13,6 @@ position = Vector2(296, 378)
 
 [node name="Spike" parent="Spike" index="2" instance=ExtResource("2_y2h64")]
 position = Vector2(253.804, -2)
+
+[node name="main_player" parent="." index="4"]
+friction = 0.1

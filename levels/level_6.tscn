@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://catans65yarh8"]
+[gd_scene load_steps=3 format=3 uid="uid://dd8ar1xavp86e"]
 
 [ext_resource type="PackedScene" uid="uid://bujf8g3gmmq5b" path="res://levels/level_base.tscn" id="1_6up2b"]
 [ext_resource type="PackedScene" uid="uid://cejtd5q6c6a67" path="res://characters/enemy.tscn" id="2_vflpa"]

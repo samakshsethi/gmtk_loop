@@ -1,6 +1,5 @@
 extends Area2D
 
-
 func _ready():
 	# Connect the body_entered signal to the handler
 	body_entered.connect(_on_body_entered)
@@ -8,8 +7,9 @@ func _ready():
 func _on_body_entered(body):
 	if body.name == "main_player":
 		var current_scene = get_tree().current_scene.scene_file_path
-		# TODO fails because first level/scene is game.tscn, thus no int
-		var next_level = current_scene.to_int() + 1
+
+		var level = current_scene.to_int()
+		var next_level = level + 1 if level != null else 0
 		
 		var next_path = "res://levels/level_" + str(next_level) + ".tscn"
 				
