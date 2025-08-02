@@ -35,6 +35,7 @@ func _ready() -> void:
 	
 	
 func _physics_process(delta: float) -> void:
+			
 	if allow_input: 
 		update_health_display()
 		handle_animation()
@@ -120,6 +121,7 @@ func take_damage(amount: int):
 		hide()
 		allow_input = false
 		collision_layer = 512
+		collision_mask = 512
 		spawn_dead_body(death_position)
 	
 		
@@ -148,6 +150,7 @@ func respawn():
 	# Reset health
 	health = 100
 	collision_layer = 3
+	collision_mask = 3
 	update_health_display()
 	# Reset position to spawn point
 	
