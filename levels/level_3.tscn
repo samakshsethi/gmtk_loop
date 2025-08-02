@@ -15,4 +15,7 @@ position = Vector2(296, 378)
 position = Vector2(253.804, -2)
 
 [node name="main_player" parent="." index="4"]
-friction = 0.1
+friction = 0.2
+
+[node name="LevelLabel" parent="." index="6"]
+script = null

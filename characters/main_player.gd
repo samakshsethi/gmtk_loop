@@ -13,7 +13,7 @@ var was_moving = true
 @export_range(0.1, 2.0) var speed_multiplier = 1.2
 @export_range(0.5, 2.0) var jump_multiplier = 1.8
 @export_range(0.5, 2.0) var gravity_multiplier = 1.0
-@export_range(0.0, 1.0) var friction = 0.1
+@export_range(0.0, 1.0) var friction = 0.2
 @export_range(0.0, 1.0) var acceleration = 0.25
 
 # Base values for calculations
