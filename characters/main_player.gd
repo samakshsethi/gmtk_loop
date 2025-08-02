@@ -23,9 +23,10 @@ const BASE_GRAVITY = 4000
 
 # Store initial spawn position
 var spawn_position: Vector2
+var allow_input = true
 
 func _ready() -> void:
-	
+	print(collision_layer)
 	# Store initial spawn position
 	spawn_position = global_position
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
@@ -34,26 +35,27 @@ func _ready() -> void:
 	
 	
 func _physics_process(delta: float) -> void:
-	update_health_display()
-	handle_animation()
-	
-	# Apply gravity using multiplier
-	velocity.y += BASE_GRAVITY * gravity_multiplier * delta
-	
-	# Handle horizontal movement with improved physics
-	var dir = Input.get_axis("move_left", "move_right")
-	if dir != 0:
-		velocity.x = lerp(velocity.x, dir * BASE_SPEED * speed_multiplier, acceleration)
-		$AnimatedSprite2D.flip_h = dir < 0
-	else:
-		velocity.x = lerp(velocity.x, 0.0, friction)
-	
-	# Handle jump input using multiplier
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = BASE_JUMP_SPEED * jump_multiplier
-	
-	# Apply movement
-	move_and_slide()
+	if allow_input: 
+		update_health_display()
+		handle_animation()
+		
+		# Apply gravity using multiplier
+		velocity.y += BASE_GRAVITY * gravity_multiplier * delta
+		
+		# Handle horizontal movement with improved physics
+		var dir = Input.get_axis("move_left", "move_right")
+		if dir != 0:
+			velocity.x = lerp(velocity.x, dir * BASE_SPEED * speed_multiplier, acceleration)
+			$AnimatedSprite2D.flip_h = dir < 0
+		else:
+			velocity.x = lerp(velocity.x, 0.0, friction)
+		
+		# Handle jump input using multiplier
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = BASE_JUMP_SPEED * jump_multiplier
+		
+		# Apply movement
+		move_and_slide()
 	
 func handle_animation():
 	if !velocity.y and velocity.x < 10 and velocity.x > -10:
@@ -105,41 +107,55 @@ func update_health_display():
 	health_label.text = str(health) + " HP"
 
 func take_damage(amount: int):
+	
 	# Handle damage taken by the player
 	health -= amount
 	update_health_display()  # Update the health display
 	
 	# Check if player has died
 	if health <= 0:
-		spawn_dead_body()
-		respawn()
-
+		print(collision_layer)
+		var death_position = global_position
+		global_position = spawn_position
+		hide()
+		allow_input = false
+		collision_layer = 512
+		spawn_dead_body(death_position)
 	
+		
+		var respawn_timer = get_tree().create_timer(1.0)
+		respawn_timer.timeout.connect(respawn)
+		
+		
+
 func heal(amount: int):
 	# Handle healing received by the player
 	health += amount
 	update_health_display()  # Update the health display
 
-func spawn_dead_body():
+func spawn_dead_body(death_position: Vector2):
 	# Create instance of dead body
 	var dead_body = dead_body_scene.instantiate()
 	
 	# Set the dead body's position to current player position
-	dead_body.global_position = global_position
+	dead_body.position = death_position
+	dead_body.collision_layer = 2      
+	dead_body.collision_mask = 2  
 	
-	print("spawning dead body")
-	# Add dead body to the scene
 	get_parent().add_child(dead_body)
 	
 func respawn():
 	# Reset health
 	health = 100
+	collision_layer = 3
 	update_health_display()
-	
 	# Reset position to spawn point
-	global_position = spawn_position
 	
+	print("spawning at " + str(spawn_position))
 	# Reset velocity
 	velocity = Vector2.ZERO
 	
+	show()
+	allow_input = true
+
 	
