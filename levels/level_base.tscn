@@ -346,6 +346,7 @@ position = Vector2(951, 344)
 [node name="main_player" parent="." instance=ExtResource("2_da5si")]
 position = Vector2(134, 325)
 friction = 0.2
+acceleration = 0.152
 
 [node name="bg" type="Node2D" parent="."]
 z_index = -99
