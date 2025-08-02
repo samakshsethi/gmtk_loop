@@ -10,7 +10,7 @@ var speed = 300
 const BASE_GRAVITY = 4000
 const GRAVITY = 980  # You can adjust this value
 var player_alive = true
-
+var dead = false
 func _ready() -> void:
 	# Set up the health display when the enemy spawns
 	setup_health_label()
@@ -20,21 +20,23 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
-	handle_animation()
 	velocity.y += GRAVITY * delta
 	
-	# Horizontal movement based on player position
-	if !player_alive or player.position.x > position.x:
-		velocity.x = speed  # Move right
-		$AnimatedSprite2D.flip_h = false  # Face right
-	else:
-		velocity.x = -speed # Move left
-		$AnimatedSprite2D.flip_h = true   # Face left
+	if !dead:
+		handle_animation()
 		
-	move_and_slide()
+	# Horizontal movement based on player position
+		if !player_alive or player.position.x > position.x:
+			velocity.x = speed  # Move right
+			$AnimatedSprite2D.flip_h = false  # Face right
+		else:
+			velocity.x = -speed # Move left
+			$AnimatedSprite2D.flip_h = true   # Face left
+		
+		move_and_slide()
 
 func handle_animation():
-	if !velocity.y and velocity.x < 10 and velocity.x > -10:
+	if !velocity.y and !velocity.x :
 		$AnimatedSprite2D.play("default")
 	else:
 		$AnimatedSprite2D.play("run")
@@ -56,6 +58,7 @@ func take_damage(amount: int):
 	# Handle damage taken by the enemy
 	health -= amount
 	if health <=0:
+		dead = true
 		$AnimatedSprite2D.play("dead")
 		collision_layer = 512
 	update_health_display()  # Update the health display
