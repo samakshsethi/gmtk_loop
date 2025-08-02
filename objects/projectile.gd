@@ -48,7 +48,7 @@ func reflect(mirror_rotation: float) -> void:
 	
 	# Calculate the reflection
 	dir = dir.reflect(mirror_normal)
-	
+	look_at(dir)
 	# Optionally, you might want to add a small offset to prevent multiple reflections
 	position += dir * 10
 

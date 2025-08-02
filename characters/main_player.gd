@@ -75,15 +75,27 @@ func handle_animation():
 		was_moving = true
 		
 func _on_animation_finished():
-	if $AnimatedSprite2D.animation == "idle":
+	if $AnimatedSprite2D.animation == "idle" or $AnimatedSprite2D.animation == "shot":
 		$AnimatedSprite2D.play("looking_around")
+
+var can_shoot = true  
 		
 func _input(event):
 	# Handle shooting input
-	if event.is_action_pressed("primary_shoot"):
-		shoot_towards_mouse()
+	if event.is_action_pressed("primary_shoot") and can_shoot:
+		$AnimatedSprite2D.play("shot")
+		var timer = get_tree().create_timer(0.15)
+		timer.timeout.connect(shoot_towards_mouse)
+
+
+# Add this at the top of your script with other variables
 
 func shoot_towards_mouse():
+	if !can_shoot:  # Check if we can shoot
+		return
+		
+	can_shoot = false  # Disable shooting
+	
 	# Get mouse position in world coordinates
 	var mouse_pos = get_global_mouse_position()
 	
@@ -95,6 +107,10 @@ func shoot_towards_mouse():
 	instance.dir = direction
 	instance.spawnPosition = global_position + direction * 50
 	get_parent().add_child.call_deferred(instance)
+	
+	# Start cooldown timer
+	var timer = get_tree().create_timer(2.0)
+	timer.timeout.connect(func(): can_shoot = true)
 
 func setup_health_label():
 	# Create a label to display the player's current health
