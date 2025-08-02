@@ -8,6 +8,7 @@ func _ready():
 func _on_body_entered(body):
 	if body.name == "main_player":
 		var current_scene = get_tree().current_scene.scene_file_path
+		# TODO fails because first level/scene is game.tscn, thus no int
 		var next_level = current_scene.to_int() + 1
 		
 		var next_path = "res://levels/level_" + str(next_level) + ".tscn"
