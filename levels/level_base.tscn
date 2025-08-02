@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bujf8g3gmmq5b"]
+[gd_scene load_steps=10 format=3 uid="uid://bujf8g3gmmq5b"]
 
 [ext_resource type="Texture2D" uid="uid://cwmdd7m8xwtyu" path="res://world/Nature_environment_01.png" id="1_vmt1o"]
 [ext_resource type="PackedScene" uid="uid://c283kxo20gm26" path="res://characters/main_player.tscn" id="2_da5si"]
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="3_ep22m"]
 [ext_resource type="PackedScene" uid="uid://dyxxvw86bsook" path="res://objects/next_level.tscn" id="4_da5si"]
 [ext_resource type="Texture2D" uid="uid://dln1pho2do4fc" path="res://world/blue_city_full.png" id="5_ep22m"]
+[ext_resource type="Script" uid="uid://cc07ng352uf1c" path="res://levels/level_label.gd" id="6_ts4ud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("1_vmt1o")
@@ -373,3 +374,4 @@ offset_right = 1017.0
 offset_bottom = 68.0
 text = "Level: 1"
 label_settings = SubResource("LabelSettings_ep22m")
+script = ExtResource("6_ts4ud")
