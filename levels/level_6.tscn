@@ -6,7 +6,7 @@
 [node name="level_6" instance=ExtResource("1_6up2b")]
 
 [node name="enemy" parent="." index="6" instance=ExtResource("2_vflpa")]
-position = Vector2(831, 356)
+position = Vector2(1189, 607)
 
 [node name="main_player" parent="." index="8"]
 friction = 0.2

@@ -1764,16 +1764,15 @@ margins = Vector2i(2, 0)
 0:12/size_in_atlas = Vector2i(3, 3)
 0:12/0 = 0
 0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.2241, -22.5928, 17.2688, -22.2423, 17.7946, -20.4899, 18.1451, 9.47736, -13.5746, 9.47736)
-10:13/size_in_atlas = Vector2i(3, 3)
-10:13/0 = 0
-10:12/size_in_atlas = Vector2i(3, 1)
-10:12/0 = 0
 17:0/size_in_atlas = Vector2i(10, 10)
 17:0/0 = 0
 1:19/size_in_atlas = Vector2i(25, 12)
 1:19/0 = 0
 0:0/size_in_atlas = Vector2i(9, 11)
 0:0/0 = 0
+10:12/size_in_atlas = Vector2i(3, 4)
+10:12/0 = 0
+10:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20.5929, -31.1181, 11.1673, -29.7521, 8, -8, 13.2163, 24.206, -17.8608, 22.8399)
 
 [sub_resource type="TileSet" id="TileSet_p3adb"]
 physics_layer_0/collision_layer = 3
