@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://burjcs6balkrq" path="res://sprites/cat/death_sprite.png" id="2_labqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_labqb"]
-size = Vector2(25.2907, 66.0178)
+size = Vector2(24.2907, 66.0178)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivuus"]
 atlas = ExtResource("2_labqb")
@@ -62,7 +62,7 @@ collision_mask = 2
 script = ExtResource("1_labqb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.0089, -0.354652)
+position = Vector2(8.0089, 0.145348)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_labqb")
 
