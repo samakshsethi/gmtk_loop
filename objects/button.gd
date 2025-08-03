@@ -2,6 +2,7 @@ extends Area2D
 
 # Reference to the plank that this button controls
 var target_plank: Node2D = null
+var is_pressed = false
 
 func _ready():
 	# Connect the body_entered signal to detect projectile hits
@@ -9,12 +10,22 @@ func _ready():
 	
 	# Try to find the plank in the scene
 	find_plank()
+	
+	# Start with unpressed animation
+	$AnimatedSprite2D.play("unpressed")
 
 func _on_body_entered(body):
 	# Check if the body that entered is a projectile
-	if body.has_method("queue_free"):  # Simple check for projectile
+	if body.has_method("queue_free") and not is_pressed:  # Simple check for projectile
 		print("Button hit by projectile!")
+		trigger_pressed_animation()
 		activate_plank_gravity()
+
+func trigger_pressed_animation():
+	# Play the pressed animation
+	$AnimatedSprite2D.play("pressed")
+	is_pressed = true
+	print("Button pressed animation triggered!")
 
 func find_plank():
 	# Look for plank in the parent scene
