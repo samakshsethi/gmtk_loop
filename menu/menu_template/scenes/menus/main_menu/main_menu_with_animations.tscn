@@ -399,7 +399,10 @@ modulate = Color(1, 1, 1, 0)
 [node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
 theme = SubResource("Theme_brkfj")
 theme_override_fonts/font = ExtResource("7_4iuo5")
-text = "...because you can't die 9 times"
+text = "One night, while chasing a glowing mouse, I ate it. BOOM!
+ Now I've got 8 lives and can shoot lasers from my tail!
+Now it's time to use my powers for the greater good!
+To catch my tail! Purrfect!"
 
 [node name="MenuButtonsContainer" parent="MenuContainer/MenuButtonsMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
