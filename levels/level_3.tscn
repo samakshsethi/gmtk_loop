@@ -12,7 +12,7 @@ script = null
 friction = 0.2
 
 [node name="Spike1" parent="." index="8" instance=ExtResource("2_y2h64")]
-position = Vector2(233, 662)
+position = Vector2(232, 650)
 
 [node name="Spike2" parent="." index="9" instance=ExtResource("2_y2h64")]
-position = Vector2(743, 662)
+position = Vector2(741, 648)

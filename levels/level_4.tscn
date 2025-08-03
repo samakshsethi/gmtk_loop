@@ -8,11 +8,11 @@
 [node name="level_4" instance=ExtResource("1_fwt2v")]
 
 [node name="mirror" parent="." index="5" instance=ExtResource("2_b15rf")]
-position = Vector2(826, 69)
+position = Vector2(568, 62)
 rotation = -0.0150735
 
 [node name="plank" parent="." index="6" instance=ExtResource("3_s4mq8")]
-position = Vector2(750, 241)
+position = Vector2(304, 438)
 
 [node name="button" parent="." index="7" instance=ExtResource("4_t0qhu")]
-position = Vector2(980, 128)
+position = Vector2(791, 177)
