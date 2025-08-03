@@ -13,6 +13,7 @@ var player_alive = true
 var dead = false
 
 func _ready() -> void:
+	$BarkSound.play()
 	add_to_group("enemies")
 
 func _physics_process(delta: float) -> void:
@@ -47,9 +48,10 @@ func take_damage(amount: int):
 	# Handle damage taken by the enemy
 	health -= amount
 	$AnimatedSprite2D.play("damage")
-	if health <=0:
+	if health <= 0:
 		dead = true
 		$AnimatedSprite2D.play("dead")
+		$BarkSound.stop()
 		collision_layer = 512
 		collision_mask = 512
 		$enemy_area.collision_layer = 512
