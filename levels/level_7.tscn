@@ -7,7 +7,7 @@
 [node name="level_7" instance=ExtResource("1_3igfe")]
 
 [node name="enemy" parent="." index="6" instance=ExtResource("2_w8d84")]
-position = Vector2(1070, 605)
+position = Vector2(1023, 602)
 
 [node name="dont_move" type="Node" parent="enemy" index="3"]
 
