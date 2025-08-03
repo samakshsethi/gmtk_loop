@@ -1,8 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpw0uuxyxvpsm"]
+[gd_scene load_steps=2 format=3 uid="uid://b5w3r2xbgwext"]
 
-[ext_resource type="PackedScene" uid="uid://chirym4o4tq88" path="res://levels/new_level_base.tscn" id="1_eus5j"]
+[ext_resource type="PackedScene" uid="uid://bujf8g3gmmq5b" path="res://levels/level_base.tscn" id="1_eus5j"]
 
 [node name="level_0" instance=ExtResource("1_eus5j")]
-
-[node name="main_player" parent="." index="6"]
-friction = 0.2
