@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cai0kn6sm0tr0" path="res://sprites/road&lamps_pale.png" id="1_jd1fy"]
 [ext_resource type="PackedScene" uid="uid://c283kxo20gm26" path="res://characters/main_player.tscn" id="2_da5si"]
-[ext_resource type="Script" uid="uid://csjwb7s0qjeh4" path="res://levels/lives_label.gd" id="2_jd1fy"]
+[ext_resource type="Script" uid="uid://d27375yf8usmk" path="res://levels/lives_label.gd" id="2_jd1fy"]
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="3_ep22m"]
 [ext_resource type="Texture2D" uid="uid://d0f6v7oevodij" path="res://sprites/sewer.png" id="3_p3adb"]
 [ext_resource type="PackedScene" uid="uid://dyxxvw86bsook" path="res://objects/next_level.tscn" id="4_da5si"]
@@ -1859,6 +1859,11 @@ position = Vector2(27, 590)
 
 [node name="Camera2D" type="Camera2D" parent="main_player"]
 position = Vector2(381, -76)
+limit_left = 0
+limit_top = 50
+limit_right = 2000
+limit_bottom = 250
+limit_smoothed = true
 
 [node name="LivesLabel" type="Label" parent="main_player/Camera2D"]
 offset_left = 474.0
