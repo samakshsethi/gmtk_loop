@@ -1,11 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://cejtd5q6c6a67"]
+[gd_scene load_steps=29 format=3 uid="uid://cejtd5q6c6a67"]
 
 [ext_resource type="Script" uid="uid://bvowa6ummhbnk" path="res://characters/enemy.gd" id="1_nhupr"]
 [ext_resource type="Texture2D" uid="uid://dlgq54kh4p3i0" path="res://sprites/Dog/Death.png" id="2_1ohc2"]
 [ext_resource type="Texture2D" uid="uid://c0o3g8sw46702" path="res://sprites/Dog/Idle.png" id="2_nhupr"]
 [ext_resource type="Texture2D" uid="uid://n7qd3yfsg12n" path="res://sprites/Dog/Hurt.png" id="2_u8tuc"]
 [ext_resource type="Texture2D" uid="uid://48cp0n2r4hc3" path="res://sprites/Dog/Walk.png" id="4_ggbst"]
-[ext_resource type="Script" uid="uid://dc5wh2uo5op7d" path="res://characters/enemy_area.gd" id="5_toq4n"]
+[ext_resource type="Script" path="res://characters/enemy_area.gd" id="5_toq4n"]
+[ext_resource type="AudioStream" uid="uid://gyrdwbql0lxg" path="res://music/sfx/dog_bark.wav" id="7_f76jb"]
+[ext_resource type="Script" uid="uid://cgi6ew3s574fj" path="res://characters/bark_sound.gd" id="8_ki21s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6k2t"]
 atlas = ExtResource("2_u8tuc")
@@ -179,5 +181,9 @@ script = ExtResource("5_toq4n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_area"]
 position = Vector2(19.5, -1.5)
 shape = SubResource("RectangleShape2D_ggbst")
+
+[node name="BarkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_f76jb")
+script = ExtResource("8_ki21s")
 
 [connection signal="body_entered" from="enemy_area" to="." method="_on_enemy_area_body_entered"]
