@@ -7,5 +7,6 @@ func _ready():
 func _on_Bark_finished():
 	var enemy = get_parent()
 	if not enemy.dead:
-		await get_tree().create_timer(2.0).timeout
+		var random_time = [2.0, 4.0, 6.0].pick_random()
+		await get_tree().create_timer(random_time).timeout
 		play()
