@@ -44,7 +44,7 @@ offset_right = 900.0
 offset_bottom = 201.0
 theme_override_fonts/font = ExtResource("3_iss0w")
 theme_override_font_sizes/font_size = 18
-text = "to shoot
+text = "Aim & Shoot
 careful, it can hurt you too"
 
 [node name="Tail" type="Label" parent="CanvasLayer/Node" index="4"]
