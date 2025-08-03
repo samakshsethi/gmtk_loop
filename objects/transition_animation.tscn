@@ -53,12 +53,13 @@ _data = {
 }
 
 [node name="transition_animation" type="CanvasLayer"]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -59.0
-offset_top = -56.0
-offset_right = 2558.0
-offset_bottom = 994.0
+offset_left = -2940.0
+offset_top = -99.0
+offset_right = -323.0
+offset_bottom = 951.0
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

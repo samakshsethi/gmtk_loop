@@ -286,7 +286,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgrrl"]
 radius = 12.41
-height = 66.92
+height = 73.62
 
 [node name="main_player" type="CharacterBody2D"]
 collision_layer = 3
@@ -307,6 +307,6 @@ sprite_frames = SubResource("SpriteFrames_a6met")
 animation = &"shot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(35.19, 18.195)
+position = Vector2(34, 19)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_cgrrl")
