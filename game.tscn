@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_menus_template/base/scenes/music_players/background_music_player.tscn" id="1_feb5d"]
 [ext_resource type="AudioStream" uid="uid://dgw4v00mgexkj" path="res://music/game_Vibing Over Venus.mp3" id="2_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://bpw0uuxyxvpsm" path="res://levels/level_0.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://b5w3r2xbgwext" path="res://levels/level_0.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node2D"]
 

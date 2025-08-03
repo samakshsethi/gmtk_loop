@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal death
+
 # Preload the projectile scene so we can instantiate it later
 @onready var projectile = load("res://objects/projectile.tscn")
 @onready var dead_body_scene = preload("res://objects/dead_body.tscn") 
@@ -129,24 +131,11 @@ func take_damage(amount: int):
 	
 	# Handle damage taken by the player
 	health -= amount
-	update_health_display()  # Update the health display
+	update_health_display()
 	
 	# Check if player has died
 	if health <= 0:
-		print(collision_layer)
-		var death_position = global_position
-		global_position = spawn_position
-		hide()
-		allow_input = false
-		collision_layer = 512
-		collision_mask = 512
-		spawn_dead_body(death_position)
-	
-		
-		var respawn_timer = get_tree().create_timer(1.0)
-		respawn_timer.timeout.connect(respawn)
-		
-		
+		death.emit()
 
 func heal(amount: int):
 	# Handle healing received by the player
@@ -164,6 +153,20 @@ func spawn_dead_body(death_position: Vector2):
 	
 	get_parent().add_child(dead_body)
 	
+func on_death():
+	Globals.lives -= 1
+	# TO-DO: Game Over when all lives are depleted
+
+	var death_position = global_position
+	global_position = spawn_position
+	hide()
+	allow_input = false
+	collision_layer = 512
+	collision_mask = 512
+	spawn_dead_body(death_position)
+	var respawn_timer = get_tree().create_timer(1.0)
+	respawn_timer.timeout.connect(respawn)
+
 func respawn():
 	# Reset health
 	health = 100

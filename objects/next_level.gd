@@ -10,6 +10,7 @@ func _on_body_entered(body):
 
 		var level = current_scene.to_int()
 		var next_level = level + 1 if level != null else 0
+		Globals.level = next_level
 		
 		var next_path = "res://levels/level_" + str(next_level) + ".tscn"
 				
