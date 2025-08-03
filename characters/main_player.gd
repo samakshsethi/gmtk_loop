@@ -5,6 +5,7 @@ signal death
 # Preload the projectile scene so we can instantiate it later
 @onready var projectile = load("res://objects/projectile.tscn")
 @onready var dead_body_scene = preload("res://objects/dead_body.tscn") 
+@onready var jump_sound = preload("res://music/sfx/Pop_1.wav")
 
 # Player health system
 var health = 100
@@ -48,11 +49,23 @@ func _physics_process(delta: float) -> void:
 			velocity.x = lerp(velocity.x, 0.0, friction)
 		
 		# Handle jump input using multiplier
-		if Input.is_action_just_pressed("jump") and is_on_floor():
-			velocity.y = BASE_JUMP_SPEED * jump_multiplier
+		# Then modify your jump code:
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = BASE_JUMP_SPEED * jump_multiplier
+		# Create an AudioStreamPlayer node
+		var audio_player = AudioStreamPlayer.new()
+		# Add it as a child of the current node
+		add_child(audio_player)
+		# Set the audio stream
+		audio_player.stream = jump_sound
+		# Play the sound
+		audio_player.volume_db = -20
+		audio_player.play()
+		# Queue it for deletion after it's done playing
+		audio_player.finished.connect(func(): audio_player.queue_free())
 		
 		# Apply movement
-		move_and_slide()
+	move_and_slide()
 	
 func handle_animation():
 	if !velocity.y and velocity.x < 10 and velocity.x > -10:
