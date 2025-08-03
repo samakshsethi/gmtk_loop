@@ -132,6 +132,7 @@ func shoot_towards_mouse():
 func take_damage(amount: int):
 	health -= amount
 	# Check if player has died
+	print(spawn_position)
 	if health <= 0:
 		death.emit()
 
@@ -149,6 +150,7 @@ func spawn_dead_body(death_position: Vector2):
 	get_parent().add_child(dead_body)
 	
 func on_death():
+	print("lol")
 	allow_input = false
 	Globals.lives -= 1
 	if Globals.lives == 0:
@@ -157,24 +159,25 @@ func on_death():
 	hide()
 	collision_layer = 512
 	collision_mask = 512
-
+	
 	var death_position = global_position
 	spawn_dead_body(death_position)
 	global_position = spawn_position
 
-	var respawn_timer = get_tree().create_timer(0.5)
+	var respawn_timer = get_tree().create_timer(0.1)
 	respawn_timer.timeout.connect(respawn)
 
 func respawn():
 	# Reset
 	health = 100
-	collision_layer = 3
-	collision_mask = 3
+	
 
 	# Reset velocity
 	velocity = Vector2.ZERO
 	
 	show()
+	collision_layer = 3
+	collision_mask = 3
 	allow_input = true
 	
 func game_over():
