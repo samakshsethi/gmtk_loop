@@ -1,9 +1,11 @@
-[gd_scene load_steps=36 format=4 uid="uid://bujf8g3gmmq5b"]
+[gd_scene load_steps=38 format=4 uid="uid://bujf8g3gmmq5b"]
 
+[ext_resource type="Script" uid="uid://b8kqlswhlycp4" path="res://levels/level_base.gd" id="1_efa87"]
 [ext_resource type="Texture2D" uid="uid://cai0kn6sm0tr0" path="res://sprites/road&lamps_pale.png" id="1_jd1fy"]
+[ext_resource type="PackedScene" uid="uid://bnrhxr2u14e42" path="res://objects/transition_animation.tscn" id="1_p78dx"]
 [ext_resource type="FontFile" uid="uid://b3ij0b1w5ex18" path="res://world/slkscr.ttf" id="2_5f4n4"]
 [ext_resource type="PackedScene" uid="uid://c283kxo20gm26" path="res://characters/main_player.tscn" id="2_da5si"]
-[ext_resource type="Script" uid="uid://d27375yf8usmk" path="res://levels/lives_label.gd" id="2_jd1fy"]
+[ext_resource type="Script" path="res://levels/lives_label.gd" id="2_jd1fy"]
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="3_ep22m"]
 [ext_resource type="Texture2D" uid="uid://d0f6v7oevodij" path="res://sprites/sewer.png" id="3_p3adb"]
 [ext_resource type="Script" uid="uid://b8whr6bng2kty" path="res://levels/game_over_label.gd" id="4_6hf62"]
@@ -1816,6 +1818,9 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_cnvg6")
 
 [node name="level_base" type="Node2D"]
+script = ExtResource("1_efa87")
+
+[node name="transition_animation" parent="." instance=ExtResource("1_p78dx")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

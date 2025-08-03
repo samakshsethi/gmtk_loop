@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dyxxvw86bsook"]
+[gd_scene load_steps=16 format=3 uid="uid://dyxxvw86bsook"]
 
 [ext_resource type="Texture2D" uid="uid://b3eneiibhb473" path="res://sprites/objects/1bit 16px icons part-2.png" id="1_kyvgo"]
 [ext_resource type="Script" uid="uid://dpcsiddfygrcy" path="res://objects/next_level.gd" id="1_n6nkt"]
 [ext_resource type="Texture2D" uid="uid://chib4qgej2b46" path="res://sprites/cat/tail.png" id="3_1om7k"]
+[ext_resource type="PackedScene" uid="uid://bnrhxr2u14e42" path="res://objects/transition_animation.tscn" id="4_qvmor"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6nkt"]
 radius = 61.0082
@@ -113,3 +114,5 @@ offset_top = 3.0
 offset_right = 37.0
 offset_bottom = 25.0
 color = Color(0, 0, 0, 1)
+
+[node name="transition_animation" parent="." instance=ExtResource("4_qvmor")]
