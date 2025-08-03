@@ -5,7 +5,7 @@
 
 [node name="level_3" instance=ExtResource("1_gkqmi")]
 
-[node name="LevelLabel" parent="." index="1"]
+[node name="LevelLabel" parent="." index="2"]
 script = null
 
 [node name="main_player" parent="." index="7"]
