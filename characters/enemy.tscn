@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://48cp0n2r4hc3" path="res://sprites/Dog/Walk.png" id="4_ggbst"]
 [ext_resource type="Script" uid="uid://dc5wh2uo5op7d" path="res://characters/enemy_area.gd" id="5_toq4n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3snac"]
-atlas = ExtResource("2_u8tuc")
-region = Rect2(48, 0, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6k2t"]
 atlas = ExtResource("2_u8tuc")
-region = Rect2(0, 0, 48, 48)
+region = Rect2(48, 14, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3snac"]
+atlas = ExtResource("2_u8tuc")
+region = Rect2(0, 14, 48, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f76jb"]
 atlas = ExtResource("2_1ohc2")
@@ -75,14 +75,14 @@ region = Rect2(240, 9, 48, 39)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3snac")
+"texture": SubResource("AtlasTexture_m6k2t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m6k2t")
+"texture": SubResource("AtlasTexture_3snac")
 }],
 "loop": false,
 "name": &"damage",
-"speed": 2.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -159,8 +159,6 @@ scale = Vector2(1.70833, 1.66667)
 sprite_frames = SubResource("SpriteFrames_sckry")
 animation = &"damage"
 autoplay = "default"
-frame = 1
-frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -4,18 +4,19 @@ extends CharacterBody2D
 @onready var projectile = load("res://objects/projectile.tscn")
 @onready var player = get_node("../main_player")
 # Enemy health system
-var health = 100
+var health = 300
 var health_label: Label
 var speed = 300
 const BASE_GRAVITY = 4000
 const GRAVITY = 980  # You can adjust this value
 var player_alive = true
 var dead = false
+
 func _ready() -> void:
 	# Set up the health display when the enemy spawns
 	setup_health_label()
 	add_to_group("enemies")
-	
+
 
 
 func _physics_process(delta: float) -> void:
@@ -38,7 +39,11 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func handle_animation():
-	if !velocity.x and $AnimatedSprite2D.animation == "damage" :
+
+	if $AnimatedSprite2D.animation == "damage" and $AnimatedSprite2D.is_playing():
+		return
+		
+	if !velocity.x:
 		$AnimatedSprite2D.play("default")
 	elif velocity.x :
 		$AnimatedSprite2D.play("run")
@@ -59,7 +64,7 @@ func update_health_display():
 func take_damage(amount: int):
 	# Handle damage taken by the enemy
 	health -= amount
-	
+	$AnimatedSprite2D.play("damage")
 	if health <=0:
 		dead = true
 		$AnimatedSprite2D.play("dead")

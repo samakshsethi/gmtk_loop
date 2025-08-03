@@ -54,6 +54,4 @@ func reflect(mirror_rotation: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var damage = 100
 	if body.has_method("take_damage"):
-		if body.name == "enemy":
-			damage = 40
 		body.take_damage(damage) # Replace with function body.
