@@ -6,6 +6,7 @@ signal death
 @onready var projectile = load("res://objects/projectile.tscn")
 @onready var dead_body_scene = preload("res://objects/dead_body.tscn") 
 @onready var jump_sound = preload("res://music/sfx/Pop_1.wav")
+@onready var laser_sound = preload("res://music/sfx/laser.wav")
 
 # Player health system
 var health = 100
@@ -101,6 +102,14 @@ func shoot_towards_mouse():
 		return
 		
 	can_shoot = false
+	
+	# Play laser sound
+	var audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
+	audio_player.stream = laser_sound
+	audio_player.volume_db = -10  # Adjust volume as needed
+	audio_player.play()
+	audio_player.finished.connect(func(): audio_player.queue_free())
 	
 	# Get mouse position in world coordinates
 	var mouse_pos = get_global_mouse_position()
