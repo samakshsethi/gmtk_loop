@@ -1,1 +1,10 @@
-https://www.notion.so/GMTK-Game-Jam-2025-fd0be6346e2b4b9ba6d5b3e01507962c?source=copy_link
+# GTMK GameJam 2025
+![submission_thumbnail](thumbnail.png)
+
+## Final Submission
+https://meemeeelord.itch.io/8-lives
+
+## Authors
+- Navjot Singh
+- Samaksh Sethi
+- Sarthak Khattar
