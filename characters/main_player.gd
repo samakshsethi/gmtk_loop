@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 		# Set the audio stream
 		audio_player.stream = jump_sound
 		# Play the sound
-		audio_player.volume_db = -20
+		audio_player.volume_db = -15
 		audio_player.play()
 		# Queue it for deletion after it's done playing
 		audio_player.finished.connect(func(): audio_player.queue_free())
