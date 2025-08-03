@@ -119,7 +119,6 @@ func heal(amount: int):
 	health += amount
 
 func spawn_dead_body(death_position: Vector2):
-	# Create instance of dead body
 	var dead_body = dead_body_scene.instantiate()
 	
 	# Set the dead body's position to current player position
@@ -133,18 +132,21 @@ func on_death():
 	Globals.lives -= 1
 	# TO-DO: Game Over when all lives are depleted
 
-	var death_position = global_position
-	global_position = spawn_position
 	hide()
 	allow_input = false
 	collision_layer = 512
 	collision_mask = 512
+
+	var death_position = global_position
 	spawn_dead_body(death_position)
-	var respawn_timer = get_tree().create_timer(1.0)
+	global_position = spawn_position
+
+	var respawn_timer = get_tree().create_timer(0.5)
 	respawn_timer.timeout.connect(respawn)
 
 func respawn():
-	# Reset health
+	# Reset
+
 	health = 100
 	collision_layer = 3
 	collision_mask = 3
