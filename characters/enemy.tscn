@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0o3g8sw46702" path="res://sprites/Dog/Idle.png" id="2_nhupr"]
 [ext_resource type="Texture2D" uid="uid://n7qd3yfsg12n" path="res://sprites/Dog/Hurt.png" id="2_u8tuc"]
 [ext_resource type="Texture2D" uid="uid://48cp0n2r4hc3" path="res://sprites/Dog/Walk.png" id="4_ggbst"]
-[ext_resource type="Script" path="res://characters/enemy_area.gd" id="5_toq4n"]
+[ext_resource type="Script" uid="uid://dc5wh2uo5op7d" path="res://characters/enemy_area.gd" id="5_toq4n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6k2t"]
 atlas = ExtResource("2_u8tuc")

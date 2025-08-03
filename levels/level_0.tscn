@@ -1,5 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5w3r2xbgwext"]
+[gd_scene load_steps=3 format=3 uid="uid://b5w3r2xbgwext"]
 
 [ext_resource type="PackedScene" uid="uid://bujf8g3gmmq5b" path="res://levels/level_base.tscn" id="1_eus5j"]
+[ext_resource type="Texture2D" uid="uid://dwuquybkf7y54" path="res://sprites/objects/controls.png" id="2_823pn"]
 
 [node name="level_0" instance=ExtResource("1_eus5j")]
+
+[node name="Node" type="Node" parent="." index="9"]
+
+[node name="Movement" type="Sprite2D" parent="Node" index="0"]
+position = Vector2(302, 170)
+texture = ExtResource("2_823pn")
+region_enabled = true
+region_rect = Rect2(0, 122.25, 260, 98)
+
+[node name="Label" type="Label" parent="Node" index="1"]
+offset_left = 390.0
+offset_top = 167.0
+offset_right = 474.0
+offset_bottom = 196.0
+text = "Movement"
+
+[node name="Movement2" type="Sprite2D" parent="Node" index="2"]
+position = Vector2(993, 167)
+texture = ExtResource("2_823pn")
+region_enabled = true
+region_rect = Rect2(36.5, 22.75, 92.5, 106)
+
+[node name="Label2" type="Label" parent="Node" index="3"]
+offset_left = 1043.0
+offset_top = 160.0
+offset_right = 1127.0
+offset_bottom = 189.0
+text = "Shoot"
