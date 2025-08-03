@@ -1,36 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5w3r2xbgwext"]
+[gd_scene load_steps=5 format=3 uid="uid://b5w3r2xbgwext"]
 
 [ext_resource type="PackedScene" uid="uid://bujf8g3gmmq5b" path="res://levels/level_base.tscn" id="1_eus5j"]
 [ext_resource type="Texture2D" uid="uid://dwuquybkf7y54" path="res://sprites/objects/controls.png" id="2_823pn"]
+[ext_resource type="FontFile" uid="uid://b3ij0b1w5ex18" path="res://world/slkscr.ttf" id="3_iss0w"]
+
+[sub_resource type="Theme" id="Theme_yi3jx"]
 
 [node name="level_0" instance=ExtResource("1_eus5j")]
 
 [node name="Node" type="Node" parent="CanvasLayer" index="2"]
 
 [node name="MovementControlsAsset" type="Sprite2D" parent="CanvasLayer/Node" index="0"]
-position = Vector2(302, 170)
+position = Vector2(200, 175)
 texture = ExtResource("2_823pn")
 region_enabled = true
 region_rect = Rect2(0, 122.25, 260, 98)
 
 [node name="MovementControls" type="Label" parent="CanvasLayer/Node" index="1"]
+anchors_preset = -1
+anchor_left = -0.0882813
+anchor_top = -0.00833333
+anchor_right = -0.0296875
 offset_left = 390.0
 offset_top = 167.0
 offset_right = 474.0
 offset_bottom = 196.0
-text = "Movement"
+theme = SubResource("Theme_yi3jx")
+theme_override_fonts/font = ExtResource("3_iss0w")
+theme_override_font_sizes/font_size = 18
+text = "for Movement"
 metadata/_edit_use_anchors_ = true
 
 [node name="ShootingControlsAsset" type="Sprite2D" parent="CanvasLayer/Node" index="2"]
-position = Vector2(993, 167)
+position = Vector2(520, 167)
 texture = ExtResource("2_823pn")
 region_enabled = true
-region_rect = Rect2(36.5, 22.75, 92.5, 106)
+region_rect = Rect2(36.5, 20.75, 92.5, 106)
 
 [node name="ShootingControls" type="Label" parent="CanvasLayer/Node" index="3"]
-offset_left = 1043.0
+offset_left = 559.0
 offset_top = 160.0
-offset_right = 1127.0
-offset_bottom = 189.0
-text = "Shoot 
-(careful, it can hurt you too)"
+offset_right = 900.0
+offset_bottom = 201.0
+theme_override_fonts/font = ExtResource("3_iss0w")
+theme_override_font_sizes/font_size = 18
+text = "to shoot
+careful, it can hurt you too"
+
+[node name="Tail" type="Label" parent="CanvasLayer/Node" index="4"]
+offset_left = 935.0
+offset_top = 158.0
+offset_right = 1241.0
+offset_bottom = 206.0
+theme_override_fonts/font = ExtResource("3_iss0w")
+theme_override_font_sizes/font_size = 18
+text = "Good luck 
+catching your tail!"
+horizontal_alignment = 1
+
+[node name="next_level" parent="." index="6"]
+position = Vector2(1996, 599)

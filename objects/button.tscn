@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cduw8rwgourmv"]
+[gd_scene load_steps=7 format=3 uid="uid://cduw8rwgourmv"]
 
 [ext_resource type="Script" uid="uid://dhl7rnuovldbj" path="res://objects/button.gd" id="1_bri14"]
 [ext_resource type="Texture2D" uid="uid://dnhj8bnu1okgg" path="res://sprites/objects/lever_green.png" id="2_8wdun"]
 [ext_resource type="Texture2D" uid="uid://cbtgu4rm6i2l0" path="res://sprites/objects/lever_red.png" id="3_pgxxe"]
+[ext_resource type="Texture2D" uid="uid://dcvpono5gery6" path="res://sprites/objects/lever_red_shine.png" id="4_pgxxe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pgxxe"]
 radius = 34.0147
@@ -20,6 +21,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_pgxxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pgxxe")
 }],
 "loop": true,
 "name": &"unpressed",
@@ -37,3 +41,5 @@ texture_filter = 1
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_bgyr6")
 animation = &"unpressed"
+autoplay = "unpressed"
+frame_progress = 0.740604

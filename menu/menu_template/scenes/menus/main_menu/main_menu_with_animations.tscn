@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_0i2sc"]
 [ext_resource type="Script" uid="uid://b5qy5nr1wivs4" path="res://menu/menu_template/scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ncvk7"]
-[ext_resource type="PackedScene" uid="uid://bdvdf5v87mmrr" path="res://menu/menu_template/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_tuy3s"]
+[ext_resource type="PackedScene" uid="uid://c6obwfb7wbibn" path="res://menu/menu_template/scenes/menus/options_menu/mini_options_menu.tscn" id="3_1y8fx"]
 [ext_resource type="PackedScene" uid="uid://wjcsvhdqikyl" path="res://menu/menu_template/scenes/credits/scrollable_credits.tscn" id="4_4saoe"]
 [ext_resource type="AudioStream" uid="uid://ck02rim81t35i" path="res://music/menu_Late Night Radio.mp3" id="5_30q4n"]
 [ext_resource type="Texture2D" uid="uid://difge8baq7bgu" path="res://world/orig_big.png" id="6_1y8fx"]
@@ -360,7 +360,7 @@ default_font = ExtResource("7_4iuo5")
 [node name="MainMenu" instance=ExtResource("1_0i2sc")]
 script = ExtResource("2_ncvk7")
 game_scene_path = "uid://dsoron2s7itmb"
-options_packed_scene = ExtResource("3_tuy3s")
+options_packed_scene = ExtResource("3_1y8fx")
 credits_packed_scene = ExtResource("4_4saoe")
 
 [node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." index="1"]
@@ -381,6 +381,9 @@ texture = ExtResource("6_1y8fx")
 
 [node name="VersionContainer" parent="VersionMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
+
+[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
+visible = false
 
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
