@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://chib4qgej2b46" path="res://sprites/cat/tail.png" id="3_1om7k"]
 [ext_resource type="PackedScene" uid="uid://bnrhxr2u14e42" path="res://objects/transition_animation.tscn" id="4_qvmor"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_n6nkt"]
-radius = 61.0082
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qvmor"]
+radius = 28.0
+height = 354.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qvmor"]
 atlas = ExtResource("3_1om7k")
@@ -83,7 +84,9 @@ animations = [{
 script = ExtResource("1_n6nkt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_n6nkt")
+position = Vector2(-58, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qvmor")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

@@ -53,7 +53,6 @@ _data = {
 }
 
 [node name="transition_animation" type="CanvasLayer"]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -2940.0
