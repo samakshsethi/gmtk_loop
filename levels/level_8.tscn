@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://b4mwqxy1hkvi2"]
+[gd_scene load_steps=80 format=4 uid="uid://lv423rykiqme"]
 
 [ext_resource type="PackedScene" uid="uid://bujf8g3gmmq5b" path="res://levels/level_base.tscn" id="1_k0e40"]
 [ext_resource type="Texture2D" uid="uid://cai0kn6sm0tr0" path="res://sprites/road&lamps_pale.png" id="2_mt5pu"]
@@ -2045,7 +2045,7 @@ sources/0 = SubResource("TileSetAtlasSource_cnvg6")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k0e40"]
 normal = Vector2(-0.999783, 0.0208288)
-distance = 103.061
+distance = -260.069
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1qmeu"]
 texture = ExtResource("71_ichdy")

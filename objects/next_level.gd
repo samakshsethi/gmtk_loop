@@ -24,6 +24,8 @@ func _on_timer_timeout():
 	var current_scene = get_tree().current_scene.scene_file_path
 	var level = current_scene.to_int()
 	var next_level = level + 1 if level != null else 0
+	if next_level == 9:
+		next_level = 8
 	var next_path = "res://levels/level_" + str(next_level) + ".tscn"
 	print("NextLevel: Loading next level path: ", next_path)
 	get_tree().change_scene_to_file(next_path)
