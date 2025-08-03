@@ -3102,7 +3102,7 @@ visible = false
 position = Vector2(550, 314)
 
 [node name="main_player" parent="." instance=ExtResource("2_da5si")]
-position = Vector2(27, 590)
+position = Vector2(22, 560)
 
 [node name="Camera2D" type="Camera2D" parent="main_player" node_paths=PackedStringArray("target")]
 position = Vector2(-54, -240)

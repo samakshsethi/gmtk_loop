@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ceb45ufdd1tlx" path="res://sprites/objects/kindpng_5633026.png" id="3_ghi2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe76i"]
-size = Vector2(59.7876, 33.4939)
+size = Vector2(59.7876, 18.9914)
 
 [node name="Spike" type="Area2D"]
 scale = Vector2(2.5, 2.5)
@@ -40,6 +40,6 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ghi2j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(108.6, -10.7)
+position = Vector2(108.6, -6.5)
 scale = Vector2(2.96383, 0.57921)
 shape = SubResource("RectangleShape2D_pe76i")
