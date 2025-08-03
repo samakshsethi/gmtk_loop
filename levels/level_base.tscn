@@ -39,10 +39,10 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ep22m")
 
 [node name="LevelLabel" type="Label" parent="."]
-offset_left = 959.0
-offset_top = 39.0
-offset_right = 1017.0
-offset_bottom = 68.0
+offset_left = 1201.0
+offset_top = 8.0
+offset_right = 1259.0
+offset_bottom = 37.0
 text = "Level: 1"
 label_settings = SubResource("LabelSettings_ep22m")
 script = ExtResource("6_ts4ud")
