@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://bujf8g3gmmq5b"]
+[gd_scene load_steps=17 format=4 uid="uid://bujf8g3gmmq5b"]
 
 [ext_resource type="Texture2D" uid="uid://cai0kn6sm0tr0" path="res://sprites/road&lamps_pale.png" id="1_jd1fy"]
 [ext_resource type="PackedScene" uid="uid://c283kxo20gm26" path="res://characters/main_player.tscn" id="2_da5si"]
 [ext_resource type="Script" uid="uid://csjwb7s0qjeh4" path="res://levels/lives_label.gd" id="2_jd1fy"]
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="3_ep22m"]
+[ext_resource type="Texture2D" uid="uid://d0f6v7oevodij" path="res://sprites/sewer.png" id="3_p3adb"]
 [ext_resource type="PackedScene" uid="uid://dyxxvw86bsook" path="res://objects/next_level.tscn" id="4_da5si"]
 [ext_resource type="Texture2D" uid="uid://dln1pho2do4fc" path="res://world/blue_city_full.png" id="5_ep22m"]
 [ext_resource type="Texture2D" uid="uid://bg6neea4hcasr" path="res://sprites/city.png" id="6_jd1fy"]
@@ -1817,6 +1818,21 @@ color = Color(0, 0, 0, 1)
 position = Vector2(1724, 302)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ep22m")
+
+[node name="underground" type="Sprite2D" parent="bg"]
+position = Vector2(-420, 890.5)
+scale = Vector2(1.52813, 2.14)
+texture = ExtResource("3_p3adb")
+
+[node name="underground2" type="Sprite2D" parent="bg"]
+position = Vector2(594, 893)
+scale = Vector2(1.52813, 2.14)
+texture = ExtResource("3_p3adb")
+
+[node name="underground3" type="Sprite2D" parent="bg"]
+position = Vector2(1658, 899)
+scale = Vector2(1.52813, 2.14)
+texture = ExtResource("3_p3adb")
 
 [node name="bounds_spike" parent="." instance=ExtResource("3_ep22m")]
 position = Vector2(-2021, 1043)
