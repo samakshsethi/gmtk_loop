@@ -149,12 +149,12 @@ func spawn_dead_body(death_position: Vector2):
 	get_parent().add_child(dead_body)
 	
 func on_death():
+	allow_input = false
 	Globals.lives -= 1
 	if Globals.lives == 0:
 		game_over()
 
 	hide()
-	allow_input = false
 	collision_layer = 512
 	collision_mask = 512
 
