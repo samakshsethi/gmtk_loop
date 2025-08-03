@@ -28,8 +28,6 @@ var spawn_position: Vector2
 var allow_input = true
 
 func _ready() -> void:
-	print(collision_layer)
-	# Store initial spawn position
 	spawn_position = global_position
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
 	
@@ -130,7 +128,8 @@ func spawn_dead_body(death_position: Vector2):
 	
 func on_death():
 	Globals.lives -= 1
-	# TO-DO: Game Over when all lives are depleted
+	if Globals.lives == 0:
+		game_over()
 
 	hide()
 	allow_input = false
@@ -146,7 +145,6 @@ func on_death():
 
 func respawn():
 	# Reset
-
 	health = 100
 	collision_layer = 3
 	collision_mask = 3
@@ -156,5 +154,14 @@ func respawn():
 	
 	show()
 	allow_input = true
-
 	
+func game_over():
+	var lives_label: Label = get_node("../CanvasLayer/LivesLabel")
+	var blink_timer: Timer = get_node("../CanvasLayer/GameOverLabel/BlinkTimer")
+	var restart_button: Button = get_node("../CanvasLayer/StartButton")
+
+	hide()
+	process_mode = Node.PROCESS_MODE_DISABLED
+	lives_label.visible = false
+	blink_timer.start()
+	restart_button.visible = true

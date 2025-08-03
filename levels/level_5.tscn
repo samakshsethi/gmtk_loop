@@ -173,6 +173,6 @@ rotation = -0.0150735
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." index="14"]
 
-[node name="main_player" parent="." index="15"]
+[node name="main_player" parent="." index="16"]
 position = Vector2(28, 521)
 friction = 0.2
