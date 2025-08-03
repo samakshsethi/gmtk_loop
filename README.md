@@ -6,5 +6,5 @@ https://meemeeelord.itch.io/8-lives
 
 ## Authors
 - Navjot Singh
-- Samaksh Sethi
-- Sarthak Khattar
+- [Samaksh Sethi](https://github.com/samakshsethi)
+- [Sarthak Khattar](https://github.com/m0mosenpai)
