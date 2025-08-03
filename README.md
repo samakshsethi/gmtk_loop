@@ -1,4 +1,4 @@
-# GTMK GameJam 2025
+# GTMK Game Jam 2025
 ![submission_thumbnail](thumbnail.png)
 
 ## Final Submission
