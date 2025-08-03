@@ -1,12 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://c63y6b25bs4bk"]
+[gd_scene load_steps=33 format=3 uid="uid://c63y6b25bs4bk"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_0i2sc"]
 [ext_resource type="Script" uid="uid://b5qy5nr1wivs4" path="res://menu/menu_template/scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ncvk7"]
 [ext_resource type="PackedScene" uid="uid://c6obwfb7wbibn" path="res://menu/menu_template/scenes/menus/options_menu/mini_options_menu.tscn" id="3_1y8fx"]
 [ext_resource type="PackedScene" uid="uid://wjcsvhdqikyl" path="res://menu/menu_template/scenes/credits/scrollable_credits.tscn" id="4_4saoe"]
-[ext_resource type="AudioStream" uid="uid://ck02rim81t35i" path="res://music/menu_Late Night Radio.mp3" id="5_30q4n"]
+[ext_resource type="AudioStream" uid="uid://dgw4v00mgexkj" path="res://music/game_Vibing Over Venus.mp3" id="5_1y8fx"]
 [ext_resource type="Texture2D" uid="uid://difge8baq7bgu" path="res://world/orig_big.png" id="6_1y8fx"]
 [ext_resource type="FontFile" uid="uid://kj5vmdv5wxih" path="res://world/Doto-VariableFont_ROND,wght.ttf" id="7_4iuo5"]
+[ext_resource type="Texture2D" uid="uid://b17kgglr3xtjv" path="res://sprites/cat/front_sitting.png" id="8_4iuo5"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -357,6 +358,70 @@ default_font = ExtResource("7_4iuo5")
 
 [sub_resource type="Theme" id="Theme_brkfj"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjewt"]
+atlas = ExtResource("8_4iuo5")
+region = Rect2(0, 0, 1984, 1984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brkfj"]
+atlas = ExtResource("8_4iuo5")
+region = Rect2(1984, 0, 1984, 1984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqcrg"]
+atlas = ExtResource("8_4iuo5")
+region = Rect2(3968, 0, 1984, 1984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4oh0"]
+atlas = ExtResource("8_4iuo5")
+region = Rect2(0, 1984, 1984, 1984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjh80"]
+atlas = ExtResource("8_4iuo5")
+region = Rect2(1984, 1984, 1984, 1984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1eaa"]
+atlas = ExtResource("8_4iuo5")
+region = Rect2(0, 1984, 1984, 1984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07y46"]
+atlas = ExtResource("8_4iuo5")
+region = Rect2(3968, 0, 1984, 1984)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7lgj"]
+atlas = ExtResource("8_4iuo5")
+region = Rect2(1984, 0, 1984, 1984)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhqtj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjewt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brkfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqcrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4oh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjh80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1eaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07y46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7lgj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="MainMenu" instance=ExtResource("1_0i2sc")]
 script = ExtResource("2_ncvk7")
 game_scene_path = "uid://dsoron2s7itmb"
@@ -374,7 +439,7 @@ anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
 [node name="BackgroundMusicPlayer" parent="." index="3"]
-stream = ExtResource("5_30q4n")
+stream = ExtResource("5_1y8fx")
 
 [node name="BackgroundTextureRect" parent="." index="4"]
 texture = ExtResource("6_1y8fx")
@@ -418,5 +483,13 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Continue"
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." index="10"]
+position = Vector2(1081, 620)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_hhqtj")
+autoplay = "default"
+frame_progress = 0.7984
+speed_scale = 0.85
 
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
