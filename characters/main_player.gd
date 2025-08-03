@@ -105,7 +105,7 @@ func shoot_towards_mouse():
 	# Create and fire a projectile
 	var instance = projectile.instantiate()
 	instance.dir = direction
-	instance.spawnPosition = global_position + direction * 65
+	instance.spawnPosition = global_position + direction * 72
 	get_parent().add_child.call_deferred(instance)
 	
 	# Start cooldown timer
