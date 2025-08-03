@@ -32,14 +32,10 @@ func _ready() -> void:
 	# Store initial spawn position
 	spawn_position = global_position
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
-	# Set up the health display when the player spawns
-	setup_health_label()
-	
 	
 func _physics_process(delta: float) -> void:
 			
 	if allow_input: 
-		update_health_display()
 		handle_animation()
 		
 		# Apply gravity using multiplier
@@ -89,14 +85,11 @@ func _input(event):
 		var timer = get_tree().create_timer(0.15)
 		timer.timeout.connect(shoot_towards_mouse)
 
-
-# Add this at the top of your script with other variables
-
 func shoot_towards_mouse():
-	if !can_shoot:  # Check if we can shoot
+	if !can_shoot:
 		return
 		
-	can_shoot = false  # Disable shooting
+	can_shoot = false
 	
 	# Get mouse position in world coordinates
 	var mouse_pos = get_global_mouse_position()
@@ -116,31 +109,14 @@ func shoot_towards_mouse():
 	var timer = get_tree().create_timer(1.2)
 	timer.timeout.connect(func(): can_shoot = true)
 
-func setup_health_label():
-	# Create a label to display the player's current health
-	health_label = Label.new()
-	add_child(health_label)
-	health_label.position = Vector2(-20, -50)  # Position above the player character
-	update_health_display()
-
-func update_health_display():
-	# Update the health label text to show current HP
-	health_label.text = str(health) + " HP"
-
 func take_damage(amount: int):
-	
-	# Handle damage taken by the player
 	health -= amount
-	update_health_display()
-	
 	# Check if player has died
 	if health <= 0:
 		death.emit()
 
 func heal(amount: int):
-	# Handle healing received by the player
 	health += amount
-	update_health_display()  # Update the health display
 
 func spawn_dead_body(death_position: Vector2):
 	# Create instance of dead body
@@ -172,10 +148,7 @@ func respawn():
 	health = 100
 	collision_layer = 3
 	collision_mask = 3
-	update_health_display()
-	# Reset position to spawn point
-	
-	print("spawning at " + str(spawn_position))
+
 	# Reset velocity
 	velocity = Vector2.ZERO
 	

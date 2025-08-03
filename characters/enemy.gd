@@ -8,16 +8,12 @@ var health = 300
 var health_label: Label
 var speed = 300
 const BASE_GRAVITY = 4000
-const GRAVITY = 980  # You can adjust this value
+const GRAVITY = 980
 var player_alive = true
 var dead = false
 
 func _ready() -> void:
-	# Set up the health display when the enemy spawns
-	setup_health_label()
 	add_to_group("enemies")
-
-
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -26,20 +22,19 @@ func _physics_process(delta: float) -> void:
 	if !dead:
 		handle_animation()
 		
-	# Horizontal movement based on player position
+		# Horizontal movement based on player position
 		if get_node_or_null("dont_move") != null:
 			velocity.x = 0
 		elif !player_alive or player.position.x > position.x:
-			velocity.x = speed  # Move right
-			$AnimatedSprite2D.flip_h = false  # Face right
+			velocity.x = speed
+			$AnimatedSprite2D.flip_h = false
 		else:
-			velocity.x = -speed # Move left
-			$AnimatedSprite2D.flip_h = true   # Face left
+			velocity.x = -speed
+			$AnimatedSprite2D.flip_h = true
 		
 		move_and_slide()
 
 func handle_animation():
-
 	if $AnimatedSprite2D.animation == "damage" and $AnimatedSprite2D.is_playing():
 		return
 		
@@ -47,19 +42,6 @@ func handle_animation():
 		$AnimatedSprite2D.play("default")
 	elif velocity.x :
 		$AnimatedSprite2D.play("run")
-
-
-		
-func setup_health_label():
-	# Create a label to display the enemy's current health
-	health_label = Label.new()
-	add_child(health_label)
-	health_label.position = Vector2(-20, -50)  # Position above the enemy character
-	update_health_display()
-
-func update_health_display():
-	# Update the health label text to show current HP
-	health_label.text = str(health) + " HP"
 	
 func take_damage(amount: int):
 	# Handle damage taken by the enemy
@@ -72,8 +54,6 @@ func take_damage(amount: int):
 		collision_mask = 512
 		$enemy_area.collision_layer = 512
 		$enemy_area.collision_mask = 512
-	update_health_display()  # Update the health display
-
 
 func _on_enemy_area_body_entered(body: Node2D) -> void:
 	if body.name == "main_player":
