@@ -1,21 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://6hfwdsu2s7cu"]
+[gd_scene load_steps=4 format=4 uid="uid://6hfwdsu2s7cu"]
 
 [ext_resource type="Script" uid="uid://di0q4bt6l7nhq" path="res://objects/spike.gd" id="1_ipc3j"]
-[ext_resource type="Texture2D" uid="uid://cd6bgsnh8rc77" path="res://sprites/objects/4 Conjoined Spikes.png" id="2_gv2ct"]
+[ext_resource type="TileSet" uid="uid://d4lkb1ghw7c3d" path="res://world/world_assets.tres" id="2_gv2ct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe76i"]
-size = Vector2(54.4842, 17.2649)
+size = Vector2(43.092, 17.2649)
 
 [node name="Spike" type="Area2D"]
-scale = Vector2(1.53268, 1)
+scale = Vector2(2.5, 2.5)
 script = ExtResource("1_ipc3j")
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(1, 1)
+tile_map_data = PackedByteArray("AAAAAP//BAAAAAUAAAABAP//BAABAAUAAAACAP//BAAAAAUAAAADAP//BAABAAUAAAAEAP//BAAAAAUAAAAFAP//BAABAAUAAAAGAP//BAAAAAUAAAAHAP//BAABAAUAAAA=")
+tile_set = ExtResource("2_gv2ct")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(23.6514, -1)
+position = Vector2(64.0218, -6)
 scale = Vector2(2.96383, 0.57921)
 shape = SubResource("RectangleShape2D_pe76i")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(24.1407, 0)
-scale = Vector2(4, 1)
-texture = ExtResource("2_gv2ct")
