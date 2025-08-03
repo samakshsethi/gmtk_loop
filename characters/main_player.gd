@@ -116,7 +116,7 @@ func shoot_towards_mouse():
 	
 	# Calculate direction from player to mouse
 	var direction = (mouse_pos - global_position).normalized()
-	var spawn_position = global_position + direction * 72
+	var spawn_position = global_position + direction * 75
 	
 	# Create and fire a projectile
 	var instance = projectile.instantiate()
