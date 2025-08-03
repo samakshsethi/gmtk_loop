@@ -38,9 +38,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func handle_animation():
-	if !velocity.x :
+	if !velocity.x and $AnimatedSprite2D.animation == "damage" :
 		$AnimatedSprite2D.play("default")
-	else:
+	elif velocity.x :
 		$AnimatedSprite2D.play("run")
 
 
@@ -59,10 +59,14 @@ func update_health_display():
 func take_damage(amount: int):
 	# Handle damage taken by the enemy
 	health -= amount
+	
 	if health <=0:
 		dead = true
 		$AnimatedSprite2D.play("dead")
 		collision_layer = 512
+		collision_mask = 512
+		$enemy_area.collision_layer = 512
+		$enemy_area.collision_mask = 512
 	update_health_display()  # Update the health display
 
 
