@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bnrhxr2u14e42" path="res://objects/transition_animation.tscn" id="1_p78dx"]
 [ext_resource type="FontFile" uid="uid://b3ij0b1w5ex18" path="res://world/slkscr.ttf" id="2_5f4n4"]
 [ext_resource type="PackedScene" uid="uid://c283kxo20gm26" path="res://characters/main_player.tscn" id="2_da5si"]
-[ext_resource type="Script" path="res://levels/lives_label.gd" id="2_jd1fy"]
+[ext_resource type="Script" uid="uid://d27375yf8usmk" path="res://levels/lives_label.gd" id="2_jd1fy"]
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="3_ep22m"]
 [ext_resource type="Texture2D" uid="uid://d0f6v7oevodij" path="res://sprites/sewer.png" id="3_p3adb"]
 [ext_resource type="Script" uid="uid://b8whr6bng2kty" path="res://levels/game_over_label.gd" id="4_6hf62"]
@@ -43,10 +43,12 @@ font_size = 56
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6hf62"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_twsyw"]
+[sub_resource type="InputEventKey" id="InputEventKey_efa87"]
+device = -1
+keycode = 4194309
 
 [sub_resource type="Shortcut" id="Shortcut_6hf62"]
-events = [SubResource("InputEventAction_twsyw")]
+events = [SubResource("InputEventKey_efa87")]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p3adb"]
 texture = ExtResource("1_jd1fy")
