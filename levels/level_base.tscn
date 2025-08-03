@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=4 uid="uid://bujf8g3gmmq5b"]
+[gd_scene load_steps=19 format=4 uid="uid://bujf8g3gmmq5b"]
 
 [ext_resource type="Texture2D" uid="uid://cai0kn6sm0tr0" path="res://sprites/road&lamps_pale.png" id="1_jd1fy"]
 [ext_resource type="FontFile" uid="uid://b3ij0b1w5ex18" path="res://world/slkscr.ttf" id="2_5f4n4"]
 [ext_resource type="PackedScene" uid="uid://c283kxo20gm26" path="res://characters/main_player.tscn" id="2_da5si"]
-[ext_resource type="Script" path="res://levels/lives_label.gd" id="2_jd1fy"]
+[ext_resource type="Script" uid="uid://d27375yf8usmk" path="res://levels/lives_label.gd" id="2_jd1fy"]
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="3_ep22m"]
 [ext_resource type="Texture2D" uid="uid://d0f6v7oevodij" path="res://sprites/sewer.png" id="3_p3adb"]
 [ext_resource type="PackedScene" uid="uid://dyxxvw86bsook" path="res://objects/next_level.tscn" id="4_da5si"]
@@ -1792,9 +1792,10 @@ visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -65.0
-offset_right = -7.0
-offset_bottom = 29.0
+offset_left = 11.0
+offset_top = 7.0
+offset_right = 69.0
+offset_bottom = 36.0
 grow_horizontal = 0
 text = "Level: 1"
 label_settings = SubResource("LabelSettings_ep22m")
@@ -1804,9 +1805,10 @@ script = ExtResource("6_ts4ud")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -124.0
-offset_right = -80.0
-offset_bottom = 29.0
+offset_left = -77.0
+offset_top = 1.0
+offset_right = -23.0
+offset_bottom = 30.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_5f4n4")
 text = "Lives:"
