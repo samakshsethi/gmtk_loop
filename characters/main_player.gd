@@ -101,11 +101,13 @@ func shoot_towards_mouse():
 	
 	# Calculate direction from player to mouse
 	var direction = (mouse_pos - global_position).normalized()
+	var spawn_position = global_position + direction * 72
 	
 	# Create and fire a projectile
 	var instance = projectile.instantiate()
 	instance.dir = direction
-	instance.spawnPosition = global_position + direction * 72
+	instance.spawnPosition = spawn_position
+	instance.look_at(-direction)
 	get_parent().add_child.call_deferred(instance)
 	
 	# Start cooldown timer

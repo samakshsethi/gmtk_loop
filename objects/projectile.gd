@@ -12,9 +12,6 @@ var spawnPosition : Vector2
 func _ready() -> void:
 	# Set the projectile's initial position when it spawns
 	global_position = spawnPosition
-	
-func _process(delta: float) -> void:
-	look_at(spawnPosition)
 
 func _physics_process(delta: float) -> void:
 	# Move the projectile in the specified direction
@@ -48,7 +45,8 @@ func reflect(mirror_rotation: float) -> void:
 	
 	# Calculate the reflection
 	dir = dir.reflect(mirror_normal)
-	look_at(dir)
+	look_at(dir + position)
+	rotate(PI)
 	# Optionally, you might want to add a small offset to prevent multiple reflections
 	position += dir * 10
 
