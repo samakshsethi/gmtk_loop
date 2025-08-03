@@ -1,11 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://cejtd5q6c6a67"]
+[gd_scene load_steps=27 format=3 uid="uid://cejtd5q6c6a67"]
 
 [ext_resource type="Script" uid="uid://bvowa6ummhbnk" path="res://characters/enemy.gd" id="1_nhupr"]
 [ext_resource type="Texture2D" uid="uid://dlgq54kh4p3i0" path="res://sprites/Dog/Death.png" id="2_1ohc2"]
 [ext_resource type="Texture2D" uid="uid://c0o3g8sw46702" path="res://sprites/Dog/Idle.png" id="2_nhupr"]
 [ext_resource type="Texture2D" uid="uid://n7qd3yfsg12n" path="res://sprites/Dog/Hurt.png" id="2_u8tuc"]
 [ext_resource type="Texture2D" uid="uid://48cp0n2r4hc3" path="res://sprites/Dog/Walk.png" id="4_ggbst"]
-[ext_resource type="Script" path="res://characters/enemy_area.gd" id="5_toq4n"]
+[ext_resource type="Script" uid="uid://dc5wh2uo5op7d" path="res://characters/enemy_area.gd" id="5_toq4n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6k2t"]
 atlas = ExtResource("2_u8tuc")
@@ -14,6 +14,10 @@ region = Rect2(48, 14, 48, 34)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3snac"]
 atlas = ExtResource("2_u8tuc")
 region = Rect2(0, 14, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf73g"]
+atlas = ExtResource("2_u8tuc")
+region = Rect2(48, 13, 48, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f76jb"]
 atlas = ExtResource("2_1ohc2")
@@ -86,6 +90,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tf73g")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f76jb")
 }, {
 "duration": 1.0,
@@ -157,7 +164,7 @@ script = ExtResource("1_nhupr")
 position = Vector2(18, -12)
 scale = Vector2(1.70833, 1.66667)
 sprite_frames = SubResource("SpriteFrames_sckry")
-animation = &"damage"
+animation = &"dead"
 autoplay = "default"
 flip_h = true
 

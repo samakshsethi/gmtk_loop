@@ -32,4 +32,5 @@ offset_left = 1043.0
 offset_top = 160.0
 offset_right = 1127.0
 offset_bottom = 189.0
-text = "Shoot"
+text = "Shoot 
+(careful, it can hurt you too)"
