@@ -57,6 +57,3 @@ theme_override_font_sizes/font_size = 18
 text = "Good luck 
 catching your tail!"
 horizontal_alignment = 1
-
-[node name="next_level" parent="." index="6"]
-position = Vector2(1996, 599)

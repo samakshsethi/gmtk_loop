@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3lkp4ifxe5h4"]
+
+[ext_resource type="Texture2D" uid="uid://umcmry32b6v6" path="res://world/bg_city/1.png" id="1_tx60u"]
+[ext_resource type="Texture2D" uid="uid://b8n7v527sdmr4" path="res://world/bg_city/2.png" id="2_puar4"]
+[ext_resource type="Texture2D" uid="uid://tu2nf8wcfoij" path="res://world/bg_city/3.png" id="3_a3jfj"]
+[ext_resource type="Texture2D" uid="uid://b3qwk2sjxjl4i" path="res://world/bg_city/4.png" id="4_rqr2a"]
+[ext_resource type="Texture2D" uid="uid://d1jbdy71y1miv" path="res://world/bg_city/5.png" id="5_k37i2"]
+
+[node name="bg_city" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(2, 2)
+
+[node name="1" type="Parallax2D" parent="Node2D"]
+
+[node name="TextureRect" type="Sprite2D" parent="Node2D/1"]
+texture = ExtResource("1_tx60u")
+metadata/_edit_use_anchors_ = true
+
+[node name="2" type="Parallax2D" parent="Node2D"]
+z_index = 3
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="Sprite2D" parent="Node2D/2"]
+texture = ExtResource("2_puar4")
+metadata/_edit_use_anchors_ = true
+
+[node name="3" type="Parallax2D" parent="Node2D"]
+visible = false
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="Sprite2D" parent="Node2D/3"]
+texture = ExtResource("3_a3jfj")
+metadata/_edit_use_anchors_ = true
+
+[node name="4" type="Parallax2D" parent="Node2D"]
+visible = false
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="TextureRect" type="Sprite2D" parent="Node2D/4"]
+texture = ExtResource("4_rqr2a")
+metadata/_edit_use_anchors_ = true
+
+[node name="5" type="Parallax2D" parent="Node2D"]
+visible = false
+scroll_scale = Vector2(0.3, 0.3)
+
+[node name="TextureRect" type="Sprite2D" parent="Node2D/5"]
+texture = ExtResource("5_k37i2")
+metadata/_edit_use_anchors_ = true

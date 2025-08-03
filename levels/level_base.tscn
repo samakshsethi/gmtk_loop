@@ -1,15 +1,21 @@
-[gd_scene load_steps=19 format=4 uid="uid://bujf8g3gmmq5b"]
+[gd_scene load_steps=25 format=4 uid="uid://bujf8g3gmmq5b"]
 
 [ext_resource type="Texture2D" uid="uid://cai0kn6sm0tr0" path="res://sprites/road&lamps_pale.png" id="1_jd1fy"]
 [ext_resource type="FontFile" uid="uid://b3ij0b1w5ex18" path="res://world/slkscr.ttf" id="2_5f4n4"]
 [ext_resource type="PackedScene" uid="uid://c283kxo20gm26" path="res://characters/main_player.tscn" id="2_da5si"]
-[ext_resource type="Script" uid="uid://d27375yf8usmk" path="res://levels/lives_label.gd" id="2_jd1fy"]
+[ext_resource type="Script" path="res://levels/lives_label.gd" id="2_jd1fy"]
 [ext_resource type="PackedScene" uid="uid://6hfwdsu2s7cu" path="res://objects/spike.tscn" id="3_ep22m"]
 [ext_resource type="Texture2D" uid="uid://d0f6v7oevodij" path="res://sprites/sewer.png" id="3_p3adb"]
 [ext_resource type="PackedScene" uid="uid://dyxxvw86bsook" path="res://objects/next_level.tscn" id="4_da5si"]
+[ext_resource type="PackedScene" uid="uid://c3lkp4ifxe5h4" path="res://objects/bg_city.tscn" id="5_6hf62"]
 [ext_resource type="Texture2D" uid="uid://dln1pho2do4fc" path="res://world/blue_city_full.png" id="5_ep22m"]
+[ext_resource type="Texture2D" uid="uid://umcmry32b6v6" path="res://world/bg_city/1.png" id="5_k4ml4"]
 [ext_resource type="Texture2D" uid="uid://bg6neea4hcasr" path="res://sprites/city.png" id="6_jd1fy"]
 [ext_resource type="Script" uid="uid://cc07ng352uf1c" path="res://levels/level_label.gd" id="6_ts4ud"]
+[ext_resource type="Texture2D" uid="uid://b8n7v527sdmr4" path="res://world/bg_city/2.png" id="6_utrdv"]
+[ext_resource type="Texture2D" uid="uid://tu2nf8wcfoij" path="res://world/bg_city/3.png" id="7_p78dx"]
+[ext_resource type="Texture2D" uid="uid://b3qwk2sjxjl4i" path="res://world/bg_city/4.png" id="8_efa87"]
+[ext_resource type="Texture2D" uid="uid://d1jbdy71y1miv" path="res://world/bg_city/5.png" id="9_1qmeu"]
 [ext_resource type="Script" uid="uid://cv32qc5ovcjce" path="res://levels/camera_position.gd" id="9_5f4n4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ep22m"]
@@ -1825,22 +1831,105 @@ tile_set = SubResource("TileSet_5f4n4")
 z_index = -99
 position = Vector2(-104, 0)
 
+[node name="Node2D" type="Node2D" parent="bg"]
+position = Vector2(674, 314)
+scale = Vector2(2, 2)
+
+[node name="1" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/1"]
+texture = ExtResource("5_k4ml4")
+metadata/_edit_use_anchors_ = true
+
+[node name="1_1" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/1_1"]
+position = Vector2(576, 0)
+texture = ExtResource("5_k4ml4")
+metadata/_edit_use_anchors_ = true
+
+[node name="2" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.6, 0.6)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/2"]
+texture = ExtResource("6_utrdv")
+metadata/_edit_use_anchors_ = true
+
+[node name="2_1" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.6, 0.6)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/2_1"]
+position = Vector2(576, 0)
+texture = ExtResource("6_utrdv")
+metadata/_edit_use_anchors_ = true
+
+[node name="3" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/3"]
+texture = ExtResource("7_p78dx")
+metadata/_edit_use_anchors_ = true
+
+[node name="3_1" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/3_1"]
+position = Vector2(576, 0)
+texture = ExtResource("7_p78dx")
+metadata/_edit_use_anchors_ = true
+
+[node name="4" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/4"]
+texture = ExtResource("8_efa87")
+metadata/_edit_use_anchors_ = true
+
+[node name="4_1" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/4_1"]
+position = Vector2(576, 0)
+texture = ExtResource("8_efa87")
+metadata/_edit_use_anchors_ = true
+
+[node name="5" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/5"]
+texture = ExtResource("9_1qmeu")
+metadata/_edit_use_anchors_ = true
+
+[node name="5_1" type="Parallax2D" parent="bg/Node2D"]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="TextureRect" type="Sprite2D" parent="bg/Node2D/5_1"]
+position = Vector2(576, 0)
+texture = ExtResource("9_1qmeu")
+metadata/_edit_use_anchors_ = true
+
 [node name="Sprite2D" type="Sprite2D" parent="bg"]
+visible = false
 position = Vector2(573, 302)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ep22m")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg"]
+visible = false
 position = Vector2(-363, 302)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ep22m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg"]
+visible = false
 position = Vector2(2876, 302)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ep22m")
 
 [node name="ColorRect" type="ColorRect" parent="bg"]
+visible = false
 offset_left = 20.0
 offset_top = 634.0
 offset_right = 2322.0
@@ -1848,6 +1937,7 @@ offset_bottom = 1163.0
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg"]
+visible = false
 position = Vector2(1724, 302)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ep22m")
@@ -1885,7 +1975,7 @@ position = Vector2(97, 0)
 shape = SubResource("WorldBoundaryShape2D_jd1fy")
 
 [node name="next_level" parent="." instance=ExtResource("4_da5si")]
-position = Vector2(2013, 599)
+position = Vector2(2107, 600)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -10
@@ -1894,6 +1984,10 @@ tile_set = SubResource("TileSet_p3adb")
 
 [node name="CameraStartPosition" type="Marker2D" parent="."]
 position = Vector2(-207, 493)
+
+[node name="bg_city" parent="." instance=ExtResource("5_6hf62")]
+visible = false
+position = Vector2(550, 314)
 
 [node name="main_player" parent="." instance=ExtResource("2_da5si")]
 position = Vector2(27, 590)

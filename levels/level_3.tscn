@@ -10,7 +10,7 @@
 tile_map_data = PackedByteArray("AAAZABoAAABRAB0AAABoABoAAABRAB0AAABMABoAAABRAB0AAABhABYAAAA1ABUAAABvABYAAAA1ABUAAAA=")
 
 [node name="plank" parent="." index="4" instance=ExtResource("4_lfnxh")]
-position = Vector2(302, 143)
+position = Vector2(350, 143)
 
 [node name="button" parent="." index="5" instance=ExtResource("5_ofchu")]
 position = Vector2(256, 442)
